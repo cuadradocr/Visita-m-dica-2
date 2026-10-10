@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Guía de Visita Médica · Demo</title>
-<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&family=Sora:wght@600;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#eef2fa;--card:#fff;--ink:#0f1f3d;--mute:#5b6985;--brand:#153e9c;--brand2:#2f7ef0;--brand-ink:#fff;--warm:#f5b800;--line:#d6deee;--off:#e3e9f6;--sh:0 8px 22px rgba(21,62,156,.14);
 box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -79,6 +79,41 @@ h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--w
 .score{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.9rem;font-weight:800;margin:4px auto 8px}
 .score small{font-size:.8rem;opacity:.85}
 .opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 14px;border-radius:14px;border:1.5px solid var(--brand);background:var(--card);color:var(--ink);font:inherit}
+h1,h2,.score,.stats b{font-family:Sora,Figtree,system-ui,sans-serif;letter-spacing:-.01em}
+body{background:radial-gradient(70% 35% at 100% 0%,rgba(29,78,216,.12),transparent 65%),radial-gradient(60% 30% at 0% 100%,rgba(245,184,0,.10),transparent 60%),var(--bg);background-attachment:fixed}
+.hero{background:radial-gradient(120% 90% at 0% 0%,rgba(255,255,255,.22),transparent 55%),linear-gradient(135deg,#0c2a6b 0%,#1d4ed8 60%,#f5b800 165%);box-shadow:0 14px 34px rgba(12,42,107,.28)}
+.logo{width:58px;height:58px;border-radius:18px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.3);display:grid;place-items:center;margin-bottom:14px;font-size:0}
+.btn{box-shadow:0 8px 18px rgba(21,62,156,.28)}
+.card{box-shadow:0 10px 28px rgba(21,62,156,.12)}
+.mod{min-height:140px;box-shadow:0 12px 26px rgba(0,0,0,.16)}
+.mod .ic{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.3);font-size:1.5rem}
+.stats{display:flex;gap:10px;margin:0 0 4px}
+.stats div{flex:1;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:12px 14px;box-shadow:var(--sh);font-size:.82rem;color:var(--mute)}
+.stats b{display:block;font-size:1.5rem;color:var(--brand)}
+.bar{height:8px;border-radius:99px;background:var(--off);overflow:hidden;margin:4px 0 14px}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--brand),var(--warm));transition:width .35s ease}
+#qq{font-size:1.08rem;line-height:1.4}
+#qo{counter-reset:o}
+#qo .opt{counter-increment:o;position:relative;padding-left:52px;transition:background .2s,border-color .2s}
+#qo .opt::before{content:counter(o,upper-alpha);position:absolute;left:14px;top:50%;transform:translateY(-50%);width:26px;height:26px;border-radius:9px;background:var(--off);display:grid;place-items:center;font-weight:800;font-size:.82rem;color:var(--brand)}
+#qo .opt.good{background:rgba(22,163,74,.14);border-color:#16a34a}
+#qo .opt.bad{background:rgba(220,38,38,.12);border-color:#dc2626}
+#qo .opt:disabled{opacity:1}
+.b.d,.b.v{box-shadow:0 4px 12px rgba(0,0,0,.08)}
+.vh{display:flex;align-items:center;gap:12px;margin-top:6px}
+.vi{flex:1;min-width:0}.vi small{display:block;color:var(--mute);font-size:.78rem}
+.av{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.9rem;background:var(--card);border:3px solid var(--cc,#3b82f6);box-shadow:0 6px 16px rgba(0,0,0,.15);transition:border-color .3s}
+.meter{height:10px;border-radius:99px;background:var(--off);overflow:hidden;margin:6px 0 3px}
+.meter i{display:block;height:100%;width:50%;border-radius:99px;transition:width .4s ease,background .4s}
+.tm{font-family:Sora,Figtree,sans-serif;font-weight:800;background:var(--off);padding:7px 11px;border-radius:12px}
+.tm.low{background:rgba(220,38,38,.15);color:#dc2626}
+.stages{display:flex;gap:6px;margin:12px 0}
+.stages span{flex:1;text-align:center;font-size:.66rem;padding:7px 2px;border-radius:10px;background:var(--off);color:var(--mute)}
+.stages span.on{background:var(--brand);color:var(--brand-ink);font-weight:700}
+.stages span.ok{background:rgba(22,163,74,.2);color:#16a34a;font-weight:700}
+.stages span.md{background:rgba(245,158,11,.2);color:#d97706;font-weight:700}
+.stages span.no{background:rgba(220,38,38,.15);color:#dc2626;font-weight:700}
+.b.c{background:rgba(245,184,0,.16);border:1px dashed var(--warm);font-size:.9rem;max-width:94%}
 [hidden]{display:none!important}
 </style>
 </head>
@@ -86,7 +121,7 @@ h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--w
 <div class="wrap">
 
 <section id="login">
-  <div class="hero"><div class="logo">🩺</div><h1>Guía de Visita Médica</h1><p>Demostración: productos y práctica de visita guiada.</p></div>
+  <div class="hero"><div class="logo"><svg width="34" height="34" viewBox="0 0 48 48" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 25h8l5-12 7 24 6-16 3 4h11"/></svg></div><h1>Guía de Visita Médica</h1><p>Demostración: productos y práctica de visita guiada.</p></div>
   <div class="card">
     <label for="u" style="margin-top:0">Usuario</label>
     <input id="u" autocomplete="username" autocapitalize="none">
@@ -99,6 +134,7 @@ h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--w
 
 <section id="home" hidden>
   <div class="hero"><div class="top"><div><h1 id="hi"></h1><p id="role"></p></div><button class="link" id="out">Salir</button></div></div>
+  <div class="stats" id="stats"></div>
   <h2>Mis módulos</h2>
   <div class="grid" id="mods"></div>
   <h2>Entrenamiento</h2>
@@ -111,22 +147,39 @@ h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--w
   <p>Cada personalidad exige una forma distinta de presentar tu mensaje.</p>
   <div class="pers" id="pers"></div>
   <div class="note" id="fiche" hidden></div>
-  <button class="btn" id="start" disabled>Iniciar visita de ejemplo (Etox)</button>
+  <label for="psel2">Producto de la visita</label>
+  <select id="psel2"></select>
+  <button class="btn" id="start" disabled>Iniciar visita</button>
+  <div class="note" id="vhist" hidden style="margin-top:14px"></div>
   <div class="note" id="note" hidden></div>
 </section>
 
 <section id="chat" hidden>
   <div class="top"><button class="link" id="exitv">‹ Salir</button><button class="link" id="snd">🔊 Voz</button></div>
-  <p id="cinfo"></p>
+  <div class="vh"><div class="av" id="av">🦈</div><div class="vi"><span id="cinfo"></span><div class="meter"><i id="mt"></i></div><small id="ml"></small></div><span class="tm" id="tm">2:30</span></div>
+  <div class="stages" id="stages"></div>
   <div id="msgs"></div>
   <div id="opts"></div>
   <div class="note" id="eval" hidden></div>
-  <p class="foot">Demostración guiada: elige tu respuesta en cada momento de la visita.</p>
+  <p class="foot">Cada respuesta cambia la confianza del médico y el tiempo de consulta es limitado. Si la confianza llega a cero, el médico termina la visita.</p>
+</section>
+
+<section id="quiz" hidden>
+  <button class="link" id="qback">‹ Volver al producto</button>
+  <h1 id="qt"></h1><p id="qp"></p>
+  <div class="bar"><i id="qbar"></i></div>
+  <div class="card"><b id="qq"></b></div>
+  <div id="qo"></div>
+  <div class="note" id="qf" hidden></div>
+  <button class="btn" id="qn" hidden>Siguiente</button>
+  <div class="note" id="qres" hidden></div>
 </section>
 
 <section id="prod" hidden>
   <button class="link" id="backP">‹ Volver</button>
   <h1 id="pt"></h1><p id="ps"></p>
+  <button class="btn" id="qbtn" style="margin:0 0 14px">📝 Cuestionario (20 preguntas al azar)</button>
+  <div class="note" id="hist" hidden style="margin:0 0 16px"></div>
   <div id="acc"></div>
   <p class="foot">Material de entrenamiento basado en el manual y la ayuda visual del producto. Uso exclusivo para el cuerpo médico.</p>
 </section>
@@ -134,7 +187,7 @@ h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--w
 </div>
 <script>
 var USERS={
- visitador1:{pass:"1234",name:"Visitador 1",role:"Visitador médico",mods:["m1","m2"]},
+ visitador1:{pass:"1234",name:"Carolina Carranza",role:"Visitadora médica",mods:["m1","m2","m3","m4","m5"]},
  visitador2:{pass:"1234",name:"Visitador 2",role:"Visitador médico",mods:["m1"]},
  admin:{pass:"admin",name:"Administrador",role:"Administrador",mods:["m1","m2","m3","m4","m5"]},
  jefe:{pass:"demo2026",name:"Invitado",role:"Versión de demostración",mods:["m1","m2","m3","m4","m5"]}
@@ -154,18 +207,13 @@ var PERS=[
 ];
 var user=null,pick=null;
 function $(i){return document.getElementById(i)}
-function show(id){["login","home","simu","prod","chat"].forEach(function(s){$(s).hidden=s!==id});window.scrollTo(0,0)}
+function show(id){["login","home","simu","prod","chat","quiz"].forEach(function(s){$(s).hidden=s!==id});window.scrollTo(0,0)}
 function login(){
  var k=$("u").value.trim().toLowerCase(),x=USERS[k];
  if(!x||x.pass!==$("p").value){$("err").textContent="Usuario o contraseña incorrectos. Revisa los datos e intenta de nuevo.";return}
- user=x;$("err").textContent="";$("p").value="";
+ user=x;x.id=k;$("err").textContent="";$("p").value="";
  $("hi").textContent="Hola, "+x.name;$("role").textContent=x.role;
- var h="";
- MODS.forEach(function(m){
-  var on=x.mods.indexOf(m.id)>-1;
-  h+='<button class="mod" data-id="'+m.id+'"'+(on?'':' disabled')+' style="--c1:'+m.c1+';--c2:'+m.c2+'"><span class="ic">'+(on?m.i:'🔒')+'</span><span><b>'+m.n+'</b><small>'+(on?m.s:'No habilitado')+'</small></span></button>';
- });
- $("mods").innerHTML=h;show("home");
+ renderMods();show("home");
 }
 function drawPers(){
  var h="";
@@ -231,14 +279,14 @@ m5:{t:"Doloro · Ciclobenzaprina",s:"Relajante muscular de uso oral (tabletas de
 ["Frente a la competencia (según el manual)",["Ciclorelax (Roemmers) 10 mg x 20 y Mitrul (Tecnofarma) 15 mg de liberación controlada x 10: misma molécula, presentación única y costo superior.","Dorixina Relax (ciclobenzaprina 5 mg más clonixinato de lisina): combinación fija sin dosis de 10 mg, no permite titular y cuesta más.","Rodalgin (ciclobenzaprina 5 mg más ibuprofeno 400 mg): combinación fija; el manual advierte del riesgo gastrointestinal del ibuprofeno y que está contraindicado en alergia a AINEs.","Metocarbamol (Mioflex, Robaxin Gold, Robaxifen): el manual dice que no está indicado en fibromialgia y puede cambiar el color de la orina."]],
 ["Datos para verificar",["El manual no trae contraindicaciones, advertencias, interacciones ni eventos adversos de Doloro: complétalos con el prospecto oficial antes de usar el módulo.","Dosis máxima: el manual sugiere 60 mg al día, pero las referencias habituales de esta molécula suelen indicar un máximo menor. Confirma con el prospecto.","El manual dice que no afecta el sistema nervioso central ni la conciencia, aunque con esta molécula suele reportarse somnolencia: confirma en el prospecto.","Presentaciones: la presentación y el manual no coinciden en cuántas son; Mitrul aparece con 15 mg y también con 5 mg.","Afirmaciones fuertes para respaldar: único relajante con estudios de eficacia en fibromialgia, medicamento de primera elección, seguro para polimedicados y asociable a ISRS.","La bioequivalencia se cita en Brasil y no se dan precios concretos."]],
 ["Preguntas que hará el médico",["¿Cómo lo dosifico? Según el manual, 10 mg dos veces al día (rango de 10 a 40 mg diarios) por 2 a 3 semanas; 5 mg permite titular. Remitir al prospecto para el máximo.","¿Lo puedo dar a un menor de 15 años? No: no se estableció seguridad ni eficacia en ese grupo.","¿Se puede asociar con un antiinflamatorio? El manual dice que sí, con antiinflamatorios e ISRS; para riesgos de interacción, remitir al prospecto.","¿Por qué no una combinación fija con ibuprofeno? Permite ajustar cada medicamento por separado y el manual advierte del riesgo gastrointestinal del AINE.","¿Qué efectos adversos tiene? El manual no los detalla: remitir al prospecto oficial."]]]}};
-function openProd(id){
+function openProd(id){curProd=id;showHist(id);
  var d=PROD[id],h="";
  $("pt").textContent=d.t;$("ps").textContent=d.s;
  d.sec.forEach(function(x,i){h+="<details"+(i===0?" open":"")+"><summary>"+x[0]+"</summary><div>"+li(x[1])+"</div></details>"});
  $("acc").innerHTML=h;show("prod");
 }
 $("mods").onclick=function(e){var b=e.target.closest("button");if(!b||b.disabled)return;openProd(b.dataset.id)};
-$("backP").onclick=function(){show("home")};
+$("backP").onclick=function(){renderMods();show("home")};
 function fiche(){
  var p=PERS.filter(function(x){return x.id===pick})[0],f=$("fiche");
  f.innerHTML="<b class='h'>Cómo decide</b>"+p.dec+"<b class='h'>Qué valora</b>"+li(p.val)+"<b class='h'>Cómo hablarle</b>"+li(p.hab)+"<b class='h'>Evita con este estilo</b>"+li(p.evi)+"<div class='q'>“"+p.anc+"”</div><b class='h'>Claves para la visita médica</b>"+li(p.cla);
@@ -247,33 +295,123 @@ function fiche(){
 $("go").onclick=login;
 $("p").onkeydown=function(e){if(e.key==="Enter")login()};
 
-$("toSim").onclick=function(){drawPers();show("simu")};
+$("toSim").onclick=function(){drawPers();fillPS();showVH();show("simu")};
 $("back").onclick=function(){show("home")};
 $("pers").onclick=function(e){
  var b=e.target.closest("button");if(!b)return;
  pick=b.dataset.id;drawPers();fiche();$("start").disabled=false;$("note").hidden=true;
 };
+var STAGES=["Apertura","Sondeo","Argumento","Objeción","Cierre"];
 var DEMO={
-t:{spec:"Ortopedia y traumatología",turns:[
-{d:"Tengo cinco minutos. ¿Qué me traes?",o:[["Doctor, Etox es etoricoxib: un coxib de una sola toma al día para dolor posoperatorio e inflamación, con menor riesgo gastrointestinal que los AINEs tradicionales.",1,"Bien, directo. Sigue."],["Doctor, primero le cuento la historia completa de la molécula, su farmacocinética y todos sus estudios...",0,"Se me acaba el tiempo. Ve al punto."]]},
-{d:"¿Qué dosis uso en un posoperatorio y por cuánto tiempo?",o:[["120 mg una vez al día, solo durante el periodo de dolor y máximo una semana.",1,"Perfecto, concreto."],["Eh... depende, no tengo ese dato exacto, pero se lo averiguo.",0,"Sin números no me sirve. Prepárate mejor."]]},
-{d:"¿Qué riesgo tiene para mis pacientes hipertensos?",o:[["Como otros AINEs puede subir la presión y retener líquidos; recomiendo la menor dosis por el menor tiempo y vigilar la tensión.",1,"Honesto y útil. Dime el siguiente paso."],["Ninguno, Etox es totalmente seguro en hipertensos.",0,"Eso es falso y me hace perder confianza."]]}]},
-a:{spec:"Odontología",turns:[
-{d:"¡Qué bueno verte! Cuéntame, ¿qué hay de nuevo?",o:[["Doctor, le presento Etox. Imagine a su paciente tras una extracción con alivio desde unos 24 minutos y una sola toma al día.",1,"¡Suena muy interesante! Cuéntame más."],["Es un AINE selectivo de COX-2. Le leo la ficha técnica completa, empezando por las contraindicaciones.",0,"Uf, qué monótono. Se me fueron las ganas."]]},
-{d:"¿Y cómo lo usarías en cirugía de cordales?",o:[["Con 60 mg se previene el dolor antes de la cirugía, y con 120 mg se cubre la cirugía de mayor intensidad y el posoperatorio.",1,"¡Me gusta! Ya visualizo varios pacientes."],["Para todo tipo de dolor, sin importar la dosis.",0,"Eso es muy vago. No me inspira."]]},
-{d:"¿Y frente al ibuprofeno, qué diferencia ven mis pacientes?",o:[["En el estudio dental, el efecto duró unas 12 horas frente a unas 10 de ibuprofeno 400 mg, con una sola toma al día.",1,"Excelente, un diferencial claro. Probémoslo con un paciente."],["No tengo el dato, pero es mejor que el ibuprofeno en todo.",0,"Sin datos no me convences."]]}]},
-l:{spec:"Reumatología",turns:[
-{d:"Buenos días. Antes de recetar algo nuevo necesito evidencia. ¿Qué respaldo tiene Etox?",o:[["Con gusto, paso a paso: es un inhibidor selectivo de COX-2 y en el estudio MEDAL se asoció con menor riesgo de úlceras gastrointestinales, con o sin aspirina o inhibidores de bomba de protones.",1,"Ordenado. Eso me sirve."],["No se preocupe, doctor, funciona muy bien y todos mis médicos lo recetan.",0,"Eso no es evidencia. No me presiones con anécdotas."]]},
-{d:"¿Y la seguridad cardiovascular?",o:[["En el análisis del manual, los eventos cardiovasculares fueron similares a los de AINEs tradicionales; por cada 1000 pacientes, 6 eventos gastrointestinales serios y 1 cardiovascular. Conviene vigilar la presión en hipertensos y mayores de 65 años.",1,"Claro y con cifras. Es lo que necesito."],["Ese tema es complicado, mejor no entrar en detalles.",0,"Una respuesta ambigua no me sirve."]]},
-{d:"Tengo pacientes con warfarina. ¿Algo que deba saber?",o:[["Sí: eleva el INR cerca de 13%, así que hay que monitorizarlo de cerca al iniciar o ajustar dosis.",1,"Preciso. Déjame el material y lo reviso con calma."],["No hay ninguna interacción, puede usarlo tranquilo.",0,"Eso contradice lo que sé. No puedo confiar en esa información."]]}]},
-g:{spec:"Medicina general",turns:[
-{d:"Hola, pasa. Cuéntame, ¿cómo estás? Hoy ha sido un día pesado.",o:[["Gracias, doctor, qué amable. Me alegra acompañarlo. Quisiera contarle algo que puede ayudar a sus pacientes con dolor.",1,"Qué detalle. Sí, tengo varios pacientes así. Cuéntame."],["Bien, vamos directo: Etox 120 mg, una vez al día. Hay que recetarlo ya.",0,"Qué seco... prefiero que no me presionen así."]]},
-{d:"A mis pacientes mayores les preocupa el estómago. ¿Cómo lo ve Etox?",o:[["Lo entiendo, doctor. Etox tiene menor riesgo gastrointestinal que los AINEs tradicionales, aunque siempre conviene la menor dosis y vigilar. Eso da tranquilidad.",1,"Me da confianza. Mis pacientes valoran sentirse cuidados."],["Eso no es problema, los mayores no tienen riesgo con Etox.",0,"No me parece responsable decir eso."]]},
-{d:"Si lo receto, ¿cómo se lo explico a mi paciente para que lo tome tranquilo?",o:[["Es una tableta al día y puede tomarla con las comidas, lo que facilita seguir el tratamiento. Yo puedo dejarle un folleto sencillo.",1,"Perfecto, eso lo hace fácil. Gracias por tu cercanía."],["Dígales que lean el prospecto.",0,"Prefiero un trato más cercano... lo pensaré."]]}]}
+t:{spec:"Ortopedia y traumatología",time:150,turns:[
+["Apertura","Tengo cinco minutos. ¿Qué me traes?",[["Doctor, le presento Etox, un coxib de una sola toma al día para dolor posoperatorio e inflamación, con menor riesgo gastrointestinal que los AINEs tradicionales.","Bien, directo. Sigue.","Abriste con el beneficio y el objetivo, justo lo que valora un Tiburón."],["Buenos días, doctor, gracias por recibirme. Vengo a presentarle un producto nuevo para el dolor.","Eso no me dice nada. ¿Cuál producto?","Fuiste cordial pero sin beneficio; con este estilo hay que ir al punto desde la primera frase."],["Primero le cuento la historia completa de la molécula, su farmacocinética y todos sus estudios...","Se me acaba el tiempo. Ve al punto.","Un Tiburón se impacienta con rodeos y exceso de detalle."]]],
+["Sondeo","Opero varias rodillas por semana y mis pacientes sufren después.",[["¿Cuántos días de analgesia necesitan y qué es lo que más les molesta después de la cirugía?","Casi siempre una semana; el dolor al moverse.","Una pregunta concreta que descubre su necesidad antes de ofrecer."],["¿Y qué analgésico les receta hoy?","Ibuprofeno, a veces opioides.","Buena pregunta, pero conviene profundizar en qué le falta a lo que usa."],["No se preocupe, Etox sirve para todos sus pacientes.","No sabes ni qué necesito. Ve a lo real.","Ofrecer sin sondear hace sentir al médico que no lo escuchas."]]],
+["Argumento","¿Qué dosis uso en un posoperatorio y por cuánto tiempo?",[["120 mg una vez al día, solo mientras dure el dolor y máximo una semana.","Perfecto, concreto.","Diste dosis, duración y límite en una sola frase."],["Entre 60 y 120 mg según el caso; le dejo la información completa.","Algo vago, necesito el número exacto.","El rango sin precisión no resuelve; da el dato exacto."],["Eh... depende, no tengo ese dato exacto, pero se lo averiguo.","Sin números no me sirve.","No saber la dosis básica quita credibilidad."]]],
+["Objeción","Me preocupa la presión de mis pacientes. ¿Qué riesgo tiene Etox en hipertensos?",[["Como otros AINEs puede subir la presión y retener líquidos; recomiendo la menor dosis por el menor tiempo y vigilar la tensión.","Honesto y útil.","Reconociste el riesgo con una conducta clara."],["Hay que tener cuidado en hipertensos, pero en general es seguro.","¿Cuidado cómo? Sé específico.","Reconoces el riesgo pero no das la conducta concreta."],["Ninguno, Etox es totalmente seguro en hipertensos.","Eso es falso y me hace perder confianza.","Negar el riesgo contradice el manual y destruye la credibilidad."]]],
+["Cierre","Está bien. ¿Qué esperas de mí?",[["Que lo pruebe en sus próximos posoperatorios de rodilla con 120 mg al día mientras dure el dolor; vuelvo en dos semanas para conocer sus resultados.","Me parece justo. Déjame las presentaciones.","Cierre con propuesta concreta y siguiente paso, como pide este estilo."],["Que lo tenga en cuenta cuando lo considere conveniente.","Eso es no pedirme nada.","Faltó una propuesta concreta y una fecha."],["Que me compre cajas hoy mismo.","No me presiones así.","Presionar sin haber construido valor genera rechazo."]]]]},
+a:{spec:"Odontología",time:210,turns:[
+["Apertura","¡Qué bueno verte! Cuéntame, ¿qué hay de nuevo?",[["Doctor, le traigo una novedad para sus pacientes con dolor tras una extracción: Etox, una sola toma al día con alivio desde unos 24 minutos.","¡Suena muy interesante! Cuéntame más.","Abriste con energía y una novedad concreta, lo que engancha a un Águila."],["Buenos días, doctor, quiero presentarle un antiinflamatorio que puede interesarle.","Mmm, ¿y qué tiene de especial?","Faltó el gancho: una novedad o un resultado que despierte su interés."],["Es un AINE selectivo de COX-2. Le leo la ficha técnica empezando por las contraindicaciones.","Uf, qué monótono. Se me fueron las ganas.","Un Águila se desconecta con monotonía y exceso de datos."]]],
+["Sondeo","Mi consulta está llena de cirugías de cordales y ortodoncia.",[["Qué interesante. ¿Qué piden más sus pacientes tras una cirugía: rapidez en el alivio o volver pronto a su rutina?","Quieren dejar de sentir dolor rápido y comer normal.","Una pregunta abierta, con visión de paciente, deja que el Águila hable."],["¿Con qué analgésico los manda hoy?","Ibuprofeno, generalmente.","Útil, pero con un Águila conviene abrir el diálogo."],["Etox sirve para todos esos casos, sin importar la dosis.","Eso es muy vago, no me inspira.","Afirmar sin escuchar no genera conexión ni muestra oportunidades."]]],
+["Argumento","¿Y frente al ibuprofeno, qué diferencia ven mis pacientes?",[["En el estudio dental, el efecto duró unas 12 horas frente a unas 10 de ibuprofeno 400 mg, con una sola toma al día.","Excelente, un diferencial claro.","Diste un dato diferencial simple, ideal para quien busca novedades."],["Dura más que el ibuprofeno y se toma una vez al día.","Suena bien, ¿cuánto más?","Buen mensaje, pero sin la cifra pierde fuerza."],["No tengo el dato, pero es mejor que el ibuprofeno en todo.","Sin datos no me convences.","Afirmar superioridad total sin respaldo erosiona la credibilidad."]]],
+["Objeción","Tengo una paciente embarazada con dolor dental. ¿Qué hago con Etox?",[["El tercer trimestre del embarazo es una advertencia del producto; en una embarazada habría que valorar muy bien el riesgo y buscar otra opción.","Gracias por ser honesto. Eso me da confianza.","Reconociste el límite del producto: honestidad que construye confianza."],["Habría que tener precaución en el embarazo; mejor consulte el prospecto.","Vale, pero dame algo más claro.","Remitir al prospecto está bien, pero puedes citar la advertencia específica."],["Puede usarlo en el embarazo sin problema alguno.","Eso me preocupa mucho. Ya no estoy entusiasmado.","Negar una advertencia del producto es un error grave de seguridad."]]],
+["Cierre","Me gusta. ¿Cómo lo probamos?",[["Le propongo elegir un paciente candidato para su próxima cirugía de cordales, probar 120 mg al día y me cuenta cómo le fue.","¡Hecho! Ya tengo uno en mente.","Invitaste a explorar una oportunidad con un paciente candidato, como funciona con este estilo."],["Si le parece, pruébelo cuando quiera y me avisa.","Lo veo bien, pero algo vago.","Falta concretar el paciente y el momento."],["Le dejo la ficha técnica completa para que la lea con calma.","Qué pereza, mejor lo hablamos otro día.","Entregar solo datos sin invitación pierde su entusiasmo."]]]]},
+l:{spec:"Reumatología",time:270,turns:[
+["Apertura","Buenos días. Antes de recetar algo nuevo necesito evidencia. ¿Qué respaldo tiene Etox?",[["Con gusto, paso a paso: es un inhibidor selectivo de la COX-2 y en el estudio MEDAL se asoció con menor riesgo de úlceras gastrointestinales, con o sin aspirina o inhibidores de bomba de protones.","Ordenado. Eso me sirve.","Estructura clara, dato y fuente: lo que un Lobo busca para confiar."],["Tiene buenos resultados en estudios y es seguro para el estómago.","¿Qué estudios? ¿Qué resultados exactos?","Mencionaste estudios sin detallarlos; el Lobo necesita datos concretos."],["No se preocupe, doctor, funciona muy bien y todos mis médicos lo recetan.","Eso no es evidencia. No me presiones con anécdotas.","Un Lobo desconfía de las anécdotas y de que lo presionen."]]],
+["Sondeo","Manejo pacientes crónicos con artritis; la seguridad es lo primero.",[["Comprendo. ¿Qué perfil de paciente le preocupa más: los mayores, los hipertensos o los que toman anticoagulantes?","Los mayores con varios medicamentos.","Una pregunta ordenada que explora su criterio de seguridad."],["¿Qué tratamiento usan hoy sus pacientes?","Diclofenaco y a veces naproxeno.","Correcta, pero conviene preguntar por sus criterios de seguridad."],["Entonces Etox es perfecto, no hace falta ver más detalles.","Sin datos no decido. Eso es apresurado.","Cerrar sin explorar presiona y no da el contexto que el Lobo necesita."]]],
+["Argumento","¿Y la seguridad cardiovascular?",[["En el análisis del manual, los eventos cardiovasculares fueron similares a los de AINEs tradicionales; por cada 1000 pacientes, 6 gastrointestinales serios y 1 cardiovascular. Conviene vigilar la presión en hipertensos y mayores de 65 años.","Claro y con cifras. Es lo que necesito.","Cifras, contexto y conducta: respuesta completa y honesta."],["Es similar a otros AINEs; hay que vigilar la presión.","¿Similar en qué porcentaje? Dame datos.","Correcta en esencia, pero faltaron las cifras de respaldo."],["Ese tema es complicado, mejor no entrar en detalles.","Una respuesta ambigua no me sirve.","Evadir una pregunta de seguridad destruye la confianza de un Lobo."]]],
+["Objeción","Tengo pacientes con warfarina y con metotrexato. ¿Hay interacciones?",[["Con warfarina eleva el INR cerca de 13%, hay que monitorizarlo. Con metotrexato no interactúa por debajo de 90 mg; con 120 mg conviene vigilar los niveles.","Preciso. Eso es justo lo que necesitaba.","Respondiste las dos interacciones con cifras y conducta."],["Con warfarina hay que monitorizar el INR; con metotrexato no debería haber problema.","¿Con cualquier dosis de metotrexato?","Faltó el matiz de la dosis de 120 mg con metotrexato."],["No hay ninguna interacción, puede usarlo tranquilo.","Eso contradice lo que sé. No puedo confiar en esa información.","Negar interacciones documentadas es un error de seguridad."]]],
+["Cierre","Está bien. ¿Qué propones?",[["Le dejo el resumen del estudio MEDAL y las dosis por indicación para revisarlos con calma, y coordinamos una próxima visita para resolver sus dudas, sin compromiso.","Perfecto, así lo evalúo con calma.","Cierre sin presión, con respaldo y próximo paso, como valora un Lobo."],["Quedo atento a sus dudas cuando quiera.","Me parece poco concreto.","Falta material y una fecha para el siguiente contacto."],["Necesito que lo empiece a recetar esta misma semana.","No me presiones. Hemos terminado.","Presionar a un Lobo cierra la puerta."]]]]},
+g:{spec:"Medicina general",time:270,turns:[
+["Apertura","Hola, pasa. Cuéntame, ¿cómo estás? Hoy ha sido un día pesado.",[["Gracias, doctor, qué amable. Espero que mejore su día. Me gustaría contarle algo que puede ayudar a sus pacientes con dolor, si me regala unos minutos.","Qué detalle. Sí, tengo varios pacientes así. Cuéntame.","Conectaste primero como persona, tal como pide este estilo."],["Bien, gracias. Le traigo información de un producto nuevo.","Ah, bueno. ¿De qué se trata?","Fuiste correcto, pero faltó calidez antes del tema técnico."],["Bien, vamos directo: Etox 120 mg, una vez al día. Hay que recetarlo ya.","Qué seco... prefiero que no me presionen así.","Un Gato necesita confianza antes del argumento técnico."]]],
+["Sondeo","Muchos de mis pacientes son mayores y viven con dolor crónico.",[["Me imagino lo difícil que es para ellos. ¿Qué es lo que más les preocupa de los tratamientos para el dolor?","El estómago y que se les olviden las pastillas.","Preguntaste con empatía por la experiencia del paciente."],["¿Qué medicamentos usan actualmente?","Varios antiinflamatorios.","Útil, pero con un Gato conviene preguntar por la experiencia del paciente."],["Entonces Etox es lo que necesitan, los mayores no tienen riesgo con él.","No me parece responsable decir eso.","Afirmar sin escuchar y sin base rompe la confianza."]]],
+["Argumento","A mis pacientes mayores les preocupa el estómago. ¿Cómo lo ve Etox?",[["Lo entiendo, doctor. Etox tiene menor riesgo gastrointestinal que los AINEs tradicionales, aunque siempre conviene la menor dosis y vigilar. Eso da tranquilidad a sus pacientes.","Me da confianza. Mis pacientes valoran sentirse cuidados.","Conectaste el beneficio con la tranquilidad del paciente, sin exagerar."],["Etox es más seguro para el estómago que los AINEs tradicionales.","¿Más seguro cuánto? No quiero prometerles de más.","Correcto, pero sin el matiz de la prudencia pierde confianza."],["Eso no es problema con Etox, no tiene ningún riesgo.","No me parece honesto.","Prometer ausencia de riesgo es poco honesto."]]],
+["Objeción","Tengo pacientes con hipertensión controlada que viven con miedo. ¿Qué les digo?",[["Entiendo su preocupación, doctor. Puede usarse con precaución: la menor dosis por el menor tiempo y vigilar la presión; la hipertensión no controlada sí es una contraindicación.","Gracias por explicarlo con calma. Así se lo puedo transmitir.","Empatía, precaución y un límite claro."],["Que lo usen con cuidado y controlen su presión.","Gracias, pero ¿hay algún caso en que no deban usarlo?","Faltó mencionar que la hipertensión no controlada es contraindicación."],["Que no se preocupen, jamás sube la presión.","No me parece honesto. Prefiero no prometer eso.","Negar el riesgo es incorrecto y genera desconfianza."]]],
+["Cierre","Si lo receto, ¿cómo se lo explico a mi paciente?",[["Es una tableta al día y puede tomarla con las comidas, lo que facilita seguir el tratamiento. Yo puedo dejarle un folleto sencillo y volver a preguntarle cómo les fue.","Perfecto, eso lo hace fácil. Gracias por tu cercanía.","Cierre amable y seguro, ligado a la experiencia del paciente."],["Que la tome una vez al día, está en el prospecto.","Prefiero algo más cercano... lo pensaré.","Correcto, pero fue frío; ofrece tu apoyo."],["Dígales que lean el prospecto.","Prefiero un trato más cercano... lo pensaré.","Un Gato valora el trato cercano; esa respuesta lo aleja."]]]]}
 };
-var turn=0,okc=0,cur=null;
+var TPL={
+t:{time:150,
+ ap:["Tengo cinco minutos. ¿Qué me traes?",["Doctor, le presento {n}: {b}","Bien, directo. Sigue.","Abriste con el beneficio y el objetivo, justo lo que valora un Tiburón."],["Buenos días, doctor, gracias por recibirme. Vengo a presentarle un producto nuevo.","Eso no me dice nada. ¿Cuál producto?","Fuiste cordial pero sin beneficio; con este estilo hay que ir al punto desde la primera frase."],["Primero le cuento la historia completa de la molécula, su farmacocinética y todos sus estudios...","Se me acaba el tiempo. Ve al punto.","Un Tiburón se impacienta con rodeos y exceso de detalle."]],
+ so:[["¿Qué es lo que más le falla hoy en esos pacientes y cuánto tiempo necesitan tratamiento?","Que el alivio tarda y el tratamiento se alarga.","Una pregunta concreta que descubre su necesidad antes de ofrecer."],["¿Y qué usa hoy para esos casos?","Lo habitual, los AINEs de siempre.","Buena pregunta, pero conviene profundizar en qué le falta a lo que usa."],["No se preocupe, {n} sirve para todos sus pacientes.","No sabes ni qué necesito. Ve a lo real.","Ofrecer sin sondear hace sentir al médico que no lo escuchas."]],
+ ci:["Está bien. ¿Qué esperas de mí?",["Me parece justo. Déjame las presentaciones.","Cierre con propuesta concreta y siguiente paso, como pide este estilo."],["Que lo tenga en cuenta cuando lo considere conveniente.","Eso es no pedirme nada.","Faltó una propuesta concreta y una fecha."],["Que me compre cajas hoy mismo.","No me presiones así.","Presionar sin haber construido valor genera rechazo."]]},
+a:{time:210,
+ ap:["¡Qué bueno verte! Cuéntame, ¿qué hay de nuevo?",["Doctor, le traigo una novedad: {n}. {b}","¡Suena muy interesante! Cuéntame más.","Abriste con energía y una novedad concreta, lo que engancha a un Águila."],["Buenos días, doctor, quiero presentarle un producto que puede interesarle.","Mmm, ¿y qué tiene de especial?","Faltó el gancho: una novedad o un resultado que despierte su interés."],["Le leo la ficha técnica completa, empezando por la composición y las contraindicaciones.","Uf, qué monótono. Se me fueron las ganas.","Un Águila se desconecta con monotonía y exceso de datos."]],
+ so:[["Qué interesante. ¿Qué piden más sus pacientes: rapidez en el alivio o volver pronto a su rutina?","Quieren dejar de sentir dolor rápido y retomar su vida.","Una pregunta abierta, con visión de paciente, deja que el Águila hable."],["¿Con qué los trata hoy?","Con lo de siempre.","Útil, pero con un Águila conviene abrir el diálogo."],["{n} sirve para todos esos casos, sin importar la dosis.","Eso es muy vago, no me inspira.","Afirmar sin escuchar no genera conexión ni muestra oportunidades."]],
+ ci:["Me gusta. ¿Cómo lo probamos?",["¡Hecho! Ya tengo uno en mente.","Invitaste a explorar una oportunidad con un paciente candidato, como funciona con este estilo."],["Si le parece, pruébelo cuando quiera y me avisa.","Lo veo bien, pero algo vago.","Falta concretar el paciente y el momento."],["Le dejo la ficha técnica completa para que la lea con calma.","Qué pereza, mejor lo hablamos otro día.","Entregar solo datos sin invitación pierde su entusiasmo."]]},
+l:{time:270,
+ ap:["Buenos días. Antes de recetar algo nuevo necesito evidencia. ¿Qué respaldo tiene {n}?",["Con gusto, paso a paso: {e}","Ordenado. Eso me sirve.","Estructura clara, dato y fuente: lo que un Lobo busca para confiar."],["Tiene buenos resultados en estudios y buena tolerabilidad.","¿Qué estudios? ¿Qué resultados exactos?","Mencionaste estudios sin detallarlos; el Lobo necesita datos concretos."],["No se preocupe, doctor, funciona muy bien y todos mis médicos lo recetan.","Eso no es evidencia. No me presiones con anécdotas.","Un Lobo desconfía de las anécdotas y de que lo presionen."]],
+ so:[["Comprendo. ¿Qué perfil de paciente le preocupa más y qué criterios de seguridad usa para elegir?","Los pacientes mayores y los que toman varios medicamentos.","Una pregunta ordenada que explora su criterio de seguridad."],["¿Qué tratamiento usan hoy sus pacientes?","Los habituales.","Correcta, pero conviene preguntar por sus criterios de seguridad."],["Entonces {n} es perfecto, no hace falta ver más detalles.","Sin datos no decido. Eso es apresurado.","Cerrar sin explorar presiona y no da el contexto que el Lobo necesita."]],
+ ci:["Está bien. ¿Qué propones?",["Perfecto, así lo evalúo con calma.","Cierre sin presión, con respaldo y próximo paso, como valora un Lobo."],["Quedo atento a sus dudas cuando quiera.","Me parece poco concreto.","Falta material y una fecha para el siguiente contacto."],["Necesito que lo empiece a recetar esta misma semana.","No me presiones. Hemos terminado.","Presionar a un Lobo cierra la puerta."]]},
+g:{time:270,
+ ap:["Hola, pasa. Cuéntame, ¿cómo estás? Hoy ha sido un día pesado.",["Gracias, doctor, qué amable. Espero que mejore su día. Me gustaría contarle algo que puede ayudar a sus pacientes, si me regala unos minutos.","Qué detalle. Sí, tengo varios pacientes así. Cuéntame.","Conectaste primero como persona, tal como pide este estilo."],["Bien, gracias. Le traigo información de un producto nuevo.","Ah, bueno. ¿De qué se trata?","Fuiste correcto, pero faltó calidez antes del tema técnico."],["Bien, vamos directo: {n}, hay que recetarlo ya.","Qué seco... prefiero que no me presionen así.","Un Gato necesita confianza antes del argumento técnico."]],
+ so:[["Me imagino lo difícil que es para ellos. ¿Qué es lo que más les preocupa de sus tratamientos?","Los efectos secundarios y que se les olviden las dosis.","Preguntaste con empatía por la experiencia del paciente."],["¿Qué medicamentos usan actualmente?","Varios, según el caso.","Útil, pero con un Gato conviene preguntar por la experiencia del paciente."],["Entonces {n} es lo que necesitan, no tiene ningún riesgo.","No me parece responsable decir eso.","Afirmar sin escuchar y sin base rompe la confianza."]],
+ ci:["Si lo receto, ¿cómo se lo explico a mi paciente?",["Perfecto, eso lo hace fácil. Gracias por tu cercanía.","Cierre amable y seguro, ligado a la experiencia del paciente."],["Que lo tome como dice el prospecto.","Prefiero algo más cercano... lo pensaré.","Correcto, pero fue frío; ofrece tu apoyo."],["Dígales que lean el prospecto.","Prefiero un trato más cercano... lo pensaré.","Un Gato valora el trato cercano; esa respuesta lo aleja."]]}
+};
+var PD={
+m2:{n:"Loxonin",b:"un AINE profármaco de 60 mg que se activa después de absorberse, con menor potencial de eventos gástricos que otros AINEs de uso repetido.",e:"es un AINE profármaco que se convierte en su metabolito activo solo después de absorberse; en un estudio endoscópico, loxoprofeno 60 mg no produjo cambios significativos en la mucosa gástrica, mientras indometacina 25 mg causó isquemia y erosiones.",
+ spec:["Ortopedia y traumatología","Odontología","Reumatología","Medicina general"],
+ need:["Tengo muchos posoperatorios de columna y necesito alivio rápido.","Mi consulta está llena de extracciones dentales y pacientes con inflamación.","Manejo pacientes con artrosis de rodilla y lumbalgia a largo plazo.","Muchos de mis pacientes mayores tienen dolor lumbar y les molesta el estómago."],
+ arg:[["¿Qué tan rápido actúa y cómo lo dosifico?",["Las concentraciones máximas llegan a los 30 y 50 minutos; la dosis es 60 mg tres veces al día, sin pasar de 180 mg.","Claro y rápido.","Diste velocidad y dosis exacta en una frase."],["Actúa rápido y se toma varias veces al día.","¿Qué tan rápido y cuántas veces? Números.","Faltaron los números exactos."],["Actúa en segundos y se toma una vez al día.","Eso no es lo que dice el material.","Datos incorrectos: son 30 y 50 minutos y tres tomas al día."]],
+  ["¿Cómo se compara con otros antiinflamatorios en cirugía?",["En cirugía de columna tuvo eficacia similar a celecoxib durante 7 días, y tras una dosis única mejoró más que celecoxib a los 30 minutos y a las 2 horas.","¡Qué buen dato!","Un resultado comparativo concreto y atractivo."],["Funciona igual o mejor que celecoxib en cirugía.","¿Igual o mejor? Cuéntame más.","Faltó el detalle de los 30 minutos y las 2 horas."],["Es mucho mejor que todos los antiinflamatorios en todo.","Sin datos no me convences.","Afirmar superioridad total sin respaldo erosiona la credibilidad."]],
+  ["¿Qué evidencia hay de eficacia frente a otros AINEs?",["En cinco ensayos con comparador activo fue tan eficaz como celecoxib, ibuprofeno y naproxeno en dolor posoperatorio, artrosis de rodilla, dolor lumbar y hombro congelado.","Bien sustentado.","Número de ensayos y comparadores concretos."],["Hay varios estudios que muestran buena eficacia.","¿Cuántos y contra cuáles?","Sin ensayos ni comparadores concretos no basta."],["Es superior a todos los AINEs en todas las condiciones.","Eso no es lo que muestran los estudios.","Exageraste: fue tan eficaz, no superior en todo."]],
+  ["A mis pacientes mayores les preocupa el estómago. ¿Cómo lo ve Loxonin?",["Lo entiendo, doctor. Por ser profármaco no actúa directamente sobre la mucosa gástrica y se activa después de absorberse, aunque sigue siendo un AINE: se evita con el estómago vacío y sin pasar de 180 mg al día.","Me da confianza. Mis pacientes valoran sentirse cuidados.","Explicaste el beneficio sin exagerar y con precauciones."],["Es más amable con el estómago que otros AINEs.","¿Más amable cuánto? No quiero prometerles de más.","Correcto, pero faltó el matiz y las precauciones."],["No tiene ningún efecto sobre el estómago.","No me parece honesto.","Es un AINE: prometer ausencia de riesgo gástrico es incorrecto."]]],
+ obj:[["Tengo pacientes con insuficiencia renal. ¿Puedo usarlo?",["Sin ajuste si el aclaramiento de creatinina es mayor a 30 ml/min; por debajo de ese valor está contraindicado.","Preciso.","Diste el umbral exacto."],["Con cuidado en insuficiencia renal; revise el prospecto.","Dame el valor exacto.","Cita el umbral de 30 ml/min."],["Se puede usar en cualquier grado de insuficiencia renal.","Eso es peligroso.","Con aclaramiento menor a 30 ml/min está contraindicado."]],
+  ["Tengo una paciente embarazada con dolor dental. ¿Qué hago?",["Está contraindicado en embarazo y lactancia (categoría C); habría que buscar otra opción.","Gracias por ser honesto.","Reconociste una contraindicación del manual."],["Habría que tener precaución en el embarazo.","¿Precaución o contraindicado? Sé claro.","No es precaución: está contraindicado en embarazo y lactancia."],["Puede usarlo en el embarazo sin problema alguno.","Eso me preocupa mucho.","Negar una contraindicación es un error grave."]],
+  ["Mis pacientes toman warfarina y metotrexato. ¿Hay interacciones?",["Como otros AINEs, puede interactuar con antagonistas de la vitamina K como warfarina y con metotrexato, además de litio, tiazídicos y antihipertensivos; no se metaboliza por el citocromo P450.","Preciso, eso necesitaba.","Citaste las interacciones del manual con precisión."],["Puede haber interacciones; hay que vigilar a esos pacientes.","¿Con cuáles exactamente?","Faltó nombrar las interacciones."],["No tiene ninguna interacción porque no pasa por el citocromo P450.","No es cierto: como AINE puede interactuar.","No usar P450 no elimina las interacciones que cita el manual."]],
+  ["¿Puedo dárselo a mi paciente adolescente de 14 años?",["No: no se conocen su eficacia ni su seguridad en menores de 16 años, por lo que está contraindicado.","Gracias por la claridad.","Citaste la contraindicación por edad."],["Mejor evitarlo en adolescentes.","¿Hasta qué edad exactamente?","El manual precisa: menores de 16 años."],["Sí, desde los 12 años no hay problema.","No me parece honesto.","El manual lo contraindica en menores de 16 años."]]],
+ c:["Que lo pruebe en sus próximos posoperatorios con 60 mg cada 8 horas sin pasar de 180 mg al día; vuelvo en dos semanas para conocer sus resultados.","Le propongo elegir un paciente con dolor tras una extracción, probar 60 mg cada 8 horas y me cuenta cómo le fue.","Le dejo el resumen de los ensayos y del estudio endoscópico para que los revise con calma, y coordinamos una próxima visita sin compromiso.","Es una tableta de 60 mg cada 8 horas, con alimentos; puedo dejarle un folleto sencillo y volver a preguntarle cómo les fue."]},
+m3:{n:"Bicerto",b:"un comprimido bifásico de ketoprofeno de una toma al día: la primera capa actúa en 15 minutos y la segunda mantiene la cobertura por 24 horas.",e:"es ketoprofeno en un comprimido bifásico de dos capas, con liberación inmediata y prolongada; las concentraciones máximas se alcanzan entre 15 y 30 minutos y la meseta entre 45 y 90 minutos.",
+ spec:["Ortopedia y traumatología","Odontología","Reumatología","Medicina general"],
+ need:["Mis pacientes con esguinces y fracturas necesitan alivio rápido y duradero.","Tengo muchas cirugías dentales y pacientes con inflamación.","Manejo pacientes con dolor reumático y lumbar que necesitan cobertura todo el día.","Mis pacientes se olvidan de tomar las pastillas varias veces al día."],
+ arg:[["¿Cuánto tarda en actuar y cuánto dura?",["Empieza a actuar en 15 minutos y cubre 24 horas con un solo comprimido al día.","Eso me sirve.","Velocidad y duración en una frase."],["Actúa rápido y dura bastante.","Dame números.","Faltaron las cifras de 15 minutos y 24 horas."],["Actúa a los 5 minutos y dura 6 horas.","Eso no coincide con lo que sé.","Datos incorrectos: son 15 minutos y 24 horas."]],
+  ["Cuéntame algo diferente: ¿qué tiene de especial el comprimido?",["Tiene dos capas: la blanca se disuelve rápido y saca de la crisis, la amarilla libera poco a poco para mantener el efecto, y con Vinko Breakline se puede partir sin perder contenido.","¡Qué ingenioso!","Explicación visual y simple de la tecnología bifásica."],["Es un comprimido de liberación prolongada.","¿Y eso qué lo hace distinto?","Faltó el gancho: dos capas y Vinko Breakline."],["Es una cápsula blanda común de ketoprofeno.","Qué aburrido.","Dato incorrecto: es un comprimido bifásico de dos capas."]],
+  ["¿Cómo debo dosificarlo y cuál es el máximo?",["Un comprimido de 150 mg al día con las comidas; en ataque, 300 mg al día repartidos en 2 tomas por el menor tiempo posible, con máximo de 300 mg diarios.","Bien, preciso.","Dosis habitual, ataque y máximo."],["Un comprimido al día; en ataque se puede subir un poco.","¿Cuánto es un poco?","Faltó la cifra de 300 mg."],["Hasta 600 mg al día si el dolor es fuerte.","Eso es peligroso.","El máximo diario es 300 mg."]],
+  ["¿Cuántas veces al día debe tomarlo mi paciente?",["Una sola vez al día, con las comidas; su cobertura de 24 horas ayuda a que no se les olvide.","Eso les ayuda mucho.","Conectaste la toma única con la adherencia del paciente."],["Una o dos veces al día.","¿Una o dos? Ayúdame con claridad.","La dosis habitual es una toma al día."],["Cada 4 horas para mantener el efecto.","Eso les complica la vida.","Dato incorrecto: es una toma diaria."]]],
+ obj:[["¿Cuál es la dosis diaria máxima? No quiero que mis pacientes se excedan.",["300 mg al día como máximo, y el tratamiento de ataque debe ser por el menor tiempo posible.","Perfecto.","Máximo y duración corta."],["No debe pasarse de dos comprimidos.","¿Eso cuántos mg son?","Dos comprimidos son 300 mg: sé explícito."],["No hay un máximo definido.","Eso es irresponsable.","El máximo recomendado es 300 mg al día."]],
+  ["¿Y para la migraña, cómo lo usarías?",["Media tableta (75 mg) al inicio de la crisis; si reaparece el mismo día, una segunda dosis con mínimo 12 horas de intervalo, sin pasar de 300 mg al día.","Interesante, útil.","Esquema completo de migraña."],["Media tableta al inicio de la crisis.","¿Y si vuelve?","Faltó el intervalo de 12 horas."],["Tres tabletas al inicio para cortarla rápido.","Eso es demasiado.","La dosis inicial en migraña es media tableta."]],
+  ["¿Cuáles son las contraindicaciones y las interacciones de Bicerto?",["En el material que manejo no aparecen las contraindicaciones ni las interacciones; le confirmo con el prospecto oficial y se las envío.","Honesto. Aprecio que no inventes.","Reconocer lo que no sabes y comprometerte a verificarlo genera confianza."],["Como todo AINE, tiene contraindicaciones; hay que revisar el prospecto.","¿Cuáles? Dame algo más.","Sin dato exacto, mejor comprometerse a enviar el prospecto."],["No tiene contraindicaciones ni interacciones importantes.","No puedo confiar en eso.","Nunca inventes datos de seguridad."]],
+  ["Algunos de mis pacientes son sensibles del estómago. ¿Qué me dices?",["Lo entiendo. Su liberación bifásica evita grandes picos y se usa en tratamientos cortos, pero sigue siendo un AINE; para contraindicaciones le confirmo con el prospecto oficial.","Gracias por la claridad y la honestidad.","Empatía, matiz y honestidad sobre lo que falta."],["Es suave con el estómago por su liberación bifásica.","¿Suave en qué sentido?","Faltó aclarar que sigue siendo un AINE."],["No afecta el estómago en absoluto.","No me parece honesto.","Prometer ausencia de efectos gástricos no es válido."]]],
+ c:["Que lo pruebe en sus próximos pacientes con esguince o fractura: un comprimido al día con las comidas; vuelvo en dos semanas para conocer sus resultados.","Le propongo elegir un paciente con cirugía dental, probar un comprimido al día y me cuenta cómo le fue.","Le dejo el resumen de la farmacocinética y el esquema de dosis, le envío el prospecto con las contraindicaciones, y coordinamos otra visita sin compromiso.","Es un comprimido al día con las comidas y puede partirse si lo necesita; puedo dejarle un folleto sencillo para sus pacientes."]},
+m4:{n:"Betatreinta",b:"una inyección de betametasona con acción inmediata por el fosfato y efecto prolongado de 4 semanas o más por el dipropionato, en una ampolla de 1 mL con jeringa de seguridad.",e:"es betametasona con fosfato disódico para acción rápida y dipropionato para efecto prolongado; tras una inyección intraarticular el alivio llega en 2 a 4 horas y suele durar 4 semanas o más.",
+ spec:["Ortopedia y traumatología","Dermatología","Reumatología","Medicina general"],
+ need:["Tengo muchos pacientes con bursitis y articulaciones dolorosas que no mejoran.","Mi consulta está llena de psoriasis, queloides y dermatitis difíciles.","Manejo artritis reumatoide y osteoartritis con brotes de inflamación.","Tengo pacientes con crisis alérgicas y asma que necesitan una solución rápida."],
+ arg:[["¿Cuánto aplico en una rodilla, un codo y un dedo?",["Rodilla, 1 a 2 mL; codo, 0,5 a 1 mL; articulaciones pequeñas como pie o mano, 0,25 a 0,5 mL.","Perfecto, concreto.","Dosis por tamaño de articulación."],["Depende del tamaño de la articulación, entre 0,25 y 2 mL.","Dame cada una.","Faltó el detalle por articulación."],["Siempre 5 mL, sin importar la articulación.","Eso es un error.","La dosis depende del tamaño de la articulación."]],
+  ["¿Cómo se usa en lesiones de la piel y qué dosis?",["Intralesional con aguja fina, 0,2 mL por cm², sin pasar de 1 mL por semana; los cristales pequeños permiten usar calibre 25 o 26.","¡Útil y concreto!","Dosis, límite semanal y ventaja práctica."],["Se inyecta en la lesión con una aguja fina.","¿Cuánto?","Faltó la dosis y el límite semanal."],["1 mL diario en cada lesión.","Eso es demasiado.","El límite es 1 mL por semana."]],
+  ["¿Cuánto dura el alivio tras una infiltración?",["Tras la inyección intraarticular el alivio llega en 2 a 4 horas y en la mayoría de los casos dura 4 semanas o más, normalmente con una ampolla al mes.","Claro.","Inicio y duración con cifras."],["Dura varias semanas.","¿Cuántas exactamente?","Faltó la cifra de 4 semanas o más."],["Dura apenas 24 horas.","No coincide con lo que sé.","Dato incorrecto: dura 4 semanas o más."]],
+  ["¿Por qué sirve en alergias y asma?",["Es antiinflamatorio y antialérgico: inhibe la cascada inflamatoria y la producción de anticuerpos alérgicos; en enfermedades respiratorias la mejoría empieza a las pocas horas de la inyección intramuscular.","Eso es lo que necesito saber.","Mecanismo simple y tiempo de respuesta."],["Es un corticoide potente que baja la inflamación.","¿Y en alergias?","Faltó conectar con el efecto antialérgico."],["Es un antibiótico que cura la causa de la alergia.","Eso es falso.","Es un corticoide, no un antibiótico."]]],
+ obj:[["Me han dicho que no se puede inyectar en cualquier sitio. ¿Qué precauciones hay?",["No debe ser intravenoso, no se aplica en articulaciones infectadas o inestables ni en espacios intervertebrales, y se evita inyectar en la masa del tendón por el riesgo de ruptura.","Exacto. Gracias.","Precauciones clave de la vía."],["Hay que evitar las articulaciones infectadas.","¿Y qué más?","Faltaron las otras precauciones."],["Se puede inyectar en cualquier parte, incluso el tendón.","Eso es peligroso.","Inyectar en el tendón puede causar ruptura."]],
+  ["¿Y la vía epidural? Algunos colegas la usan.",["La administración epidural no está aprobada: se han reportado eventos neurológicos graves, algunos mortales.","Gracias por la claridad.","Citaste el riesgo grave."],["No es lo más recomendable.","¿Está o no aprobada?","Sé claro: no está aprobada."],["Es una vía segura y aprobada.","Eso es falso y peligroso.","No está aprobada y hay eventos neurológicos graves."]],
+  ["Tengo pacientes con diabetes y con tuberculosis latente. ¿Qué cuidados?",["Puede alterar la glucosa y requerir ajuste de antidiabéticos o insulina; en tuberculosis latente hay que vigilar por riesgo de reactivación, y además puede enmascarar infecciones.","Preciso.","Cubriste ambos riesgos con conducta."],["Hay que tener cuidado en esos pacientes.","¿Qué cuidado concreto?","Faltó la conducta concreta."],["No hay ningún cuidado especial.","No me convence.","Hay precauciones documentadas en ambos casos."]],
+  ["Una paciente embarazada con asma. ¿Puedo usarlo?",["En embarazo y lactancia hay que valorar el riesgo y el beneficio, y observar al recién nacido por posible hipoadrenalismo; no es una decisión para tomar sin esa evaluación.","Gracias por ser prudente.","Prudencia y valoración riesgo-beneficio."],["Habría que tener cuidado en el embarazo.","¿Qué cuidado, concretamente?","Faltó la valoración riesgo-beneficio."],["Es totalmente seguro en el embarazo.","No es honesto.","No hay estudios controlados que respalden esa afirmación."]]],
+ c:["Que lo pruebe en un paciente con bursitis o articulación dolorosa: una ampolla de 1 mL con la técnica y el sitio correctos; vuelvo en dos semanas para conocer su respuesta.","Le propongo elegir un paciente con psoriasis o queloide para infiltración intralesional con la dosis indicada y me cuenta cómo le fue.","Le dejo la información de dosis por articulación y las precauciones, y coordinamos otra visita para resolver sus dudas, sin compromiso.","Es una ampolla de 1 mL con su jeringa de seguridad; puedo dejarle una guía sencilla de indicaciones y precauciones para su consulta."]},
+m5:{n:"Doloro",b:"un relajante muscular con ciclobenzaprina en tabletas de 5 y 10 mg, para espasmos con dolor muscular y fibromialgia.",e:"es ciclobenzaprina, que actúa en la formación reticular del tallo cerebral y reduce el tono del músculo esquelético; está indicada en espasmos musculares con dolor agudo y en fibromialgia, en tratamientos de 2 a 3 semanas.",
+ spec:["Ortopedia y traumatología","Fisiatría y rehabilitación","Reumatología","Medicina general"],
+ need:["Mis pacientes con lumbalgia y tortícolis llegan con contracturas muy dolorosas.","Mis pacientes de rehabilitación quieren volver rápido a moverse sin dolor.","Tengo pacientes con fibromialgia que duermen mal y viven con dolor difuso.","Muchos pacientes consultan por dolor de espalda y cuello por mala postura."],
+ arg:[["¿Qué dosis uso en una contractura?",["Según el manual, 10 mg dos veces al día con rango de 10 a 40 mg diarios, durante 2 a 3 semanas; la presentación de 5 mg permite titular.","Concreto.","Dosis, rango y duración."],["10 mg dos veces al día.","¿Y por cuánto tiempo?","Faltó la duración de 2 a 3 semanas."],["100 mg al día por un mes.","Eso es un error.","El rango es de 10 a 40 mg diarios por 2 a 3 semanas."]],
+  ["¿Cómo ayuda a mis pacientes a moverse mejor?",["Reduce el tono del músculo esquelético y es coadyuvante de la fisioterapia y el reposo; así el paciente avanza en su rehabilitación con menos espasmo.","Eso encaja con lo que hago.","Conectaste con su trabajo de rehabilitación."],["Es un relajante que ayuda con el dolor.","¿Y cómo ayuda a la rehabilitación?","Faltó el vínculo con la fisioterapia."],["Reemplaza la fisioterapia.","Eso no es cierto.","Es coadyuvante, no un reemplazo."]],
+  ["¿Qué respaldo tiene en fibromialgia?",["Está indicado en el síndrome de fibromialgia (dolor difuso, fatiga y alteración del sueño); el manual destaca la mejoría en la calidad del sueño y le confirmo con el prospecto los detalles de la evidencia.","Prudente y claro.","Indicación clara y honestidad sobre la evidencia."],["Está indicado en fibromialgia.","¿Con qué estudios?","Faltó respaldo."],["Es el único relajante con estudios en fibromialgia y la primera elección.","Eso necesita respaldo.","Esas afirmaciones no están respaldadas en el manual."]],
+  ["¿Cómo le explico a mi paciente cómo tomarlo?",["10 mg dos veces al día, o 10 mg al acostarse, que según el manual tiene eficacia similar con menos efectos secundarios; no interactúa con alimentos y dura 2 a 3 semanas.","Eso lo hace fácil.","Esquema simple, con la opción nocturna."],["Una tableta cuando le duela.","¿Cada cuánto?","Faltó el esquema."],["Solo en ayunas.","No lo dice el manual.","Los alimentos no interactúan con su absorción."]]],
+ obj:[["¿Hasta qué dosis máxima puedo llegar?",["El manual sugiere un máximo de 60 mg al día, pero le confirmo con el prospecto oficial porque las referencias habituales suelen ser menores.","Gracias por la prudencia.","Citaste la fuente y pediste verificar."],["Hasta 60 mg al día.","¿Seguro? Me parece mucho.","Conviene confirmar con el prospecto."],["No hay límite.","Eso es peligroso.","Sí existe un máximo sugerido."]],
+  ["Mis pacientes se duermen mucho. ¿Esto no afecta?",["El manual dice que no afecta el sistema nervioso central, pero con esta molécula suele reportarse somnolencia; le confirmo con el prospecto y puede darse 10 mg al acostarse.","Gracias por ser honesto.","Reconociste la diferencia entre el manual y lo esperado."],["Puede dar un poco de sueño.","¿Cuánto? ¿Qué hago?","Faltó la conducta."],["No produce sueño en nadie.","No lo creo.","Esa afirmación es incorrecta."]],
+  ["¿Cuáles son las contraindicaciones, las interacciones y los efectos adversos?",["En el material que manejo no aparecen esos datos; le confirmo con el prospecto oficial y se lo envío.","Honesto.","Reconocer lo que no sabes genera confianza."],["Hay que revisar el prospecto.","¿Cuáles son las principales?","Comprométete a enviarlo."],["No tiene contraindicaciones.","No puedo confiar en eso.","No inventes datos de seguridad."]],
+  ["¿Puedo usarlo en un joven de 14 años?",["No: no se estableció su seguridad ni su eficacia en menores de 15 años.","Gracias.","Citaste la edad mínima."],["Mejor no en jóvenes.","¿Desde qué edad?","El manual indica mayores de 15 años."],["Sí, desde los 10 años.","No me parece.","Dato incorrecto."]]],
+ c:["Que lo pruebe en sus próximos pacientes con contractura: 10 mg dos veces al día por 2 a 3 semanas; vuelvo para conocer su respuesta.","Le propongo elegir un paciente en rehabilitación con espasmo, usarlo como apoyo a la fisioterapia y me cuenta cómo le fue.","Le dejo la información de dosis y de fibromialgia, le envío el prospecto con la seguridad, y coordinamos otra visita sin compromiso.","Es una tableta de 10 mg dos veces al día o de noche, por 2 a 3 semanas; puedo dejarle un folleto sencillo para sus pacientes."]}
+};
+function buildVisits(m){var P=PD[m],o={};
+ ["t","a","l","g"].forEach(function(st,k){var T=TPL[st];
+  function f(x){return x.replace(/\{n\}/g,P.n).replace(/\{b\}/g,P.b).replace(/\{e\}/g,P.e)}
+  function fx(a){return [f(a[0]),a[1],a[2]]}
+  o[st]={spec:P.spec[k],time:T.time,turns:[
+   ["Apertura",f(T.ap[0]),[fx(T.ap[1]),fx(T.ap[2]),fx(T.ap[3])]],
+   ["Sondeo",P.need[k],[fx(T.so[0]),fx(T.so[1]),fx(T.so[2])]],
+   ["Argumento",P.arg[k][0],[P.arg[k][1],P.arg[k][2],P.arg[k][3]]],
+   ["Objeción",P.obj[k][0],[P.obj[k][1],P.obj[k][2],P.obj[k][3]]],
+   ["Cierre",T.ci[0],[[P.c[k],T.ci[1][0],T.ci[1][1]],T.ci[2],T.ci[3]]]]}});
+ return o}
+var VD={m1:DEMO};["m2","m3","m4","m5"].forEach(function(m){VD[m]=buildVisits(m)});
+var vp="m1";
+function fillPS(){var sel=$("psel2"),h="";MODS.forEach(function(m){if(user.mods.indexOf(m.id)>-1&&VD[m.id])h+='<option value="'+m.id+'">'+m.n+' ('+m.s.toLowerCase()+')</option>'});sel.innerHTML=h}
 var voiceOn=true,SR=window.SpeechRecognition||window.webkitSpeechRecognition;
-function speak(t){if(!voiceOn||!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="es-CO";var v=speechSynthesis.getVoices().filter(function(x){return x.lang.indexOf("es")===0})[0];if(v)u.voice=v;speechSynthesis.speak(u)}
+function speak(t){if(!voiceOn||!window.speechSynthesis)return;var u=new SpeechSynthesisUtterance(t);u.lang="es-CO";var v=speechSynthesis.getVoices().filter(function(x){return x.lang.indexOf("es")===0})[0];if(v)u.voice=v;speechSynthesis.speak(u)}
 function unlock(){if(window.speechSynthesis){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(" "))}}
 function addMsg(r,t,q){var d=document.createElement("div");d.className="b "+r;d.textContent=t;$("msgs").appendChild(d);d.scrollIntoView({block:"end"});if(r==="d"&&!q)speak(t);return d}
 $("snd").onclick=function(){voiceOn=!voiceOn;$("snd").textContent=voiceOn?"🔊 Voz":"🔇 Voz";if(!voiceOn&&window.speechSynthesis)speechSynthesis.cancel()};
@@ -282,24 +420,247 @@ function listen(){
  if(window.speechSynthesis)speechSynthesis.cancel();
  var r=new SR();r.lang="es-CO";r.interimResults=false;var m=$("mic");m.textContent="🎙️ Escuchando…";
  r.onresult=function(e){var said=norm(e.results[0][0].transcript),best=-1,bs=0;
-  DEMO[cur.id].turns[turn].o.forEach(function(o,i){var w=norm(o[0]).join(" "),hit=0;said.forEach(function(x){if(w.indexOf(x)>-1)hit++});var sc=said.length?hit/said.length:0;if(sc>bs){bs=sc;best=i}});
-  if(best>-1&&bs>=0.3)choose(best);else addMsg("d","(Aviso) No te entendí bien. Lee una de las respuestas en voz alta o tócala.",1)};
+  VD[vp][cur.id].turns[turn][2].forEach(function(o,i){var w=norm(o[0]).join(" "),hit=0;said.forEach(function(x){if(w.indexOf(x)>-1)hit++});var sc=said.length?hit/said.length:0;if(sc>bs){bs=sc;best=i}});
+  if(best>-1&&bs>=0.3)choose(best);else addMsg("c","(Aviso) No te entendí bien. Lee una de las respuestas en voz alta o tócala.",1)};
  r.onend=function(){if($("mic"))$("mic").textContent="🎤 Hablar mi respuesta"};
- r.onerror=function(){addMsg("d","(Aviso) No pude usar el micrófono. Permite el acceso en Ajustes > Safari > Micrófono, o toca una respuesta.",1)};
+ r.onerror=function(){addMsg("c","(Aviso) No pude usar el micrófono. Permite el acceso en Ajustes > Safari > Micrófono, o toca una respuesta.",1)};
  try{r.start()}catch(x){r.onerror()}
 }
-function showOpts(){var t=DEMO[cur.id].turns[turn],ord=turn%2?[1,0]:[0,1],h="";ord.forEach(function(i){h+='<button class="opt" data-i="'+i+'">'+t.o[i][0]+'</button>'});if(SR)h+='<button class="btn" id="mic" style="margin-top:10px">🎤 Hablar mi respuesta</button>';$("opts").innerHTML=h;$("opts").scrollIntoView({block:"end"})}
-function startVisit(){cur=PERS.filter(function(p){return p.id===pick})[0];var D=DEMO[cur.id];turn=0;okc=0;$("msgs").innerHTML="";$("opts").innerHTML="";$("eval").hidden=true;$("cinfo").textContent="Etox · "+cur.i+" "+cur.n+" · "+D.spec;show("chat");addMsg("d",D.turns[0].d);showOpts()}
-function choose(i){var D=DEMO[cur.id],o=D.turns[turn].o[i];$("opts").innerHTML="";addMsg("v",o[0]);if(o[1])okc++;
- setTimeout(function(){addMsg("d",o[2]);turn++;if(turn<D.turns.length){setTimeout(function(){addMsg("d",D.turns[turn].d);showOpts()},1800)}else{setTimeout(finish,2200)}},500)}
+var turn=0,pts=0,conf=50,cur=null,tmr=null,left=0,answers=[],whys=[],busy=false;
+function fmt(t){t=Math.max(t,0);var m=Math.floor(t/60),s=t%60;return m+":"+(s<10?"0":"")+s}
+function stopTimer(){if(tmr){clearInterval(tmr);tmr=null}}
+function setConf(v){conf=Math.max(0,Math.min(100,v));var m=$("mt"),c=conf<30?"#dc2626":conf<60?"#f59e0b":conf<80?"#3b82f6":"#16a34a";m.style.width=conf+"%";m.style.background=c;$("av").style.setProperty("--cc",c);$("ml").textContent="Confianza del médico: "+conf+"% · "+(conf<30?"Molesto":conf<60?"Neutral":conf<80?"Interesado":"Convencido")}
+function drawStages(){var h="";STAGES.forEach(function(s,i){var c=i<answers.length?(answers[i]===2?"ok":answers[i]===1?"md":"no"):(i===turn?"on":"");h+='<span class="'+c+'">'+s+'</span>'});$("stages").innerHTML=h}
+function showOpts(){var t=VD[vp][cur.id].turns[turn][2],box=$("opts");box.innerHTML="";
+ shuf([0,1,2]).forEach(function(i){var b=document.createElement("button");b.className="opt";b.dataset.i=i;b.textContent=t[i][0];box.appendChild(b)});
+ if(SR){var m=document.createElement("button");m.className="btn";m.id="mic";m.style.marginTop="10px";m.textContent="🎤 Hablar mi respuesta";box.appendChild(m)}
+ box.scrollIntoView({block:"end"})}
+function tick(){left--;$("tm").textContent=fmt(left);if(left<=30)$("tm").className="tm low";if(left<=0)endVisit("Se me acabó el tiempo, tengo otro paciente esperando. Lo dejamos aquí.")}
+function startVisit(){cur=PERS.filter(function(p){return p.id===pick})[0];vp=$("psel2").value||"m1";var D=VD[vp][cur.id];
+ turn=0;pts=0;answers=[];whys=[];busy=false;stopTimer();
+ $("msgs").innerHTML="";$("opts").innerHTML="";$("eval").hidden=true;$("av").textContent=cur.i;
+ $("cinfo").textContent=PROD[vp].t.split(" · ")[0]+" · "+cur.n+" · "+D.spec;left=D.time;$("tm").textContent=fmt(left);$("tm").className="tm";
+ setConf(50);drawStages();show("chat");tmr=setInterval(tick,1000);addMsg("d",D.turns[0][1]);showOpts()}
+function endVisit(r){stopTimer();busy=true;$("opts").innerHTML="";addMsg("d",r);setTimeout(finish,1800)}
+function choose(i){if(busy)return;busy=true;var D=VD[vp][cur.id],t=D.turns[turn][2][i],sc=2-i;
+ $("opts").innerHTML="";addMsg("v",t[0]);answers.push(sc);whys.push(t[2]);pts+=sc;setConf(conf+(sc===2?20:sc===1?5:-20));drawStages();
+ setTimeout(function(){addMsg("d",t[1]);setTimeout(function(){addMsg("c","💡 "+t[2],1);turn++;
+  if(conf<=0){endVisit("Esto no está funcionando. Hemos terminado la visita.");return}
+  if(turn<D.turns.length){setTimeout(function(){addMsg("d",D.turns[turn][1]);drawStages();showOpts();busy=false},1500)}else{stopTimer();setTimeout(finish,1800)}},900)},500)}
 $("opts").onclick=function(e){if(e.target.closest("#mic"))return listen();var b=e.target.closest("button.opt");if(b)choose(+b.dataset.i)};
-function finish(){var sc=[2,5,8,10][okc],c=sc>=8?"#16a34a":sc>=6?"#d97706":"#dc2626",ev=$("eval");
+function loadV(){try{return JSON.parse(localStorage.getItem("vh_"+(user?user.id:"x"))||"[]")}catch(e){return []}}
+function showVH(){var v=loadV(),e=$("vhist");if(!v.length){e.hidden=true;return}
+ var best=Math.max.apply(null,v.map(function(x){return x.s}));
+ e.hidden=false;e.innerHTML="<b>Tus visitas anteriores</b><br>Visitas: "+v.length+" · Mejor nota: "+best+"/10"+li(v.slice(-5).reverse().map(function(x){return x.d+" · "+x.st+" · "+x.s+"/10"}))}
+function finish(){stopTimer();var D=VD[vp][cur.id],N=D.turns.length,sc=Math.max(1,Math.round(pts/(2*N)*10)),c=sc>=8?"#16a34a":sc>=6?"#d97706":"#dc2626",ev=$("eval"),h="";
+ STAGES.forEach(function(s,i){var a=answers[i];h+="<li>"+(a===undefined?"⏱️":a===2?"✅":a===1?"〰️":"❌")+" <b>"+s+":</b> "+(a===undefined?"no llegaste a esta etapa.":whys[i])+"</li>"});
+ var v=loadV(),now=new Date();v.push({d:now.toLocaleDateString("es-CO")+" "+now.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"}),st:PROD[vp].t.split(" · ")[0]+" · "+cur.n,s:sc});try{localStorage.setItem("vh_"+(user?user.id:"x"),JSON.stringify(v.slice(-20)))}catch(x){}
  ev.hidden=false;speak("Tu nota es "+sc+" de 10.");
- ev.innerHTML="<div class='score' style='background:"+c+"'>"+sc+"<small>/10</small></div><b class='h'>Resultado</b>"+(okc===3?"Te adaptaste muy bien al estilo "+cur.n+".":okc===0?"Esta vez no lograste conectar con el estilo "+cur.n+".":"Conectaste en "+okc+" de 3 momentos.")+"<b class='h'>Claves para este estilo</b>"+li(cur.cla)+"<b class='h'>Evita</b>"+li(cur.evi)+"<p class='foot'>Esta es una demostración con respuestas predefinidas. La versión completa usa un médico con IA que improvisa y habla.</p><button class='btn' id='again'>Probar otro estilo</button>";
- $("again").onclick=function(){show("simu")};ev.scrollIntoView({block:"end"})}
+ ev.innerHTML="<div class='score' style='background:"+c+"'>"+sc+"<small>/10</small></div><b class='h'>"+(sc>=8?"🎉 ":"")+"Confianza final del médico: "+conf+"%</b><b class='h'>Resultado por etapa</b><ul>"+h+"</ul><b class='h'>Claves para este estilo</b>"+li(cur.cla)+"<b class='h'>Evita</b>"+li(cur.evi)+"<button class='btn' id='redo'>Repetir con este estilo</button><button class='btn' id='again'>Probar otro estilo</button><p class='foot'>Demostración con respuestas predefinidas. La versión completa usa un médico con IA que improvisa y habla.</p>";
+ $("redo").onclick=startVisit;$("again").onclick=function(){showVH();show("simu")};ev.scrollIntoView({block:"end"})}
 $("start").onclick=function(){unlock();startVisit()};
-$("out").onclick=function(){pick=null;show("login")};
-$("exitv").onclick=function(){if(window.speechSynthesis)speechSynthesis.cancel();show("simu")};
+$("out").onclick=function(){pick=null;stopTimer();show("login")};
+$("exitv").onclick=function(){stopTimer();if(window.speechSynthesis)speechSynthesis.cancel();showVH();show("simu")};
+var QUIZ={
+m1:[
+["¿A qué grupo pertenece Etox (etoricoxib)?","AINE selectivo de la COX-2 (coxib)","Corticoide inyectable","Relajante muscular","Mecanismo"],
+["Además de seguridad gastrointestinal y efectividad en dolor, ¿cuál es el tercer punto clave de Etox?","Dosis única diaria","Tres tomas al día","Presentación inyectable","Puntos clave"],
+["¿Cómo viene Etox 120 mg?","Caja por 7 tabletas","Caja por 14 tabletas","Caja por 30 tabletas","Presentaciones"],
+["¿Cómo se usa para dolor agudo y dismenorrea primaria?","120 mg solo durante el dolor, máximo una semana","60 mg durante un mes","90 mg tres veces al día","Posología"],
+["¿Cuál es la dosis y duración máxima en artritis gotosa aguda?","120 mg al día, máximo 7 días","60 mg al día por un mes","30 mg al día por 3 meses","Posología"],
+["¿Con qué dosis se recomienda iniciar en artritis reumatoide?","60 mg","120 mg","30 mg","Posología"],
+["¿Cuál es la biodisponibilidad de etoricoxib?","Cercana al 100%","Cercana al 50%","Cercana al 20%","Farmacocinética"],
+["¿Qué efecto tienen los alimentos sobre su absorción?","No la afectan","La reducen mucho","Obligan a tomarlo en ayunas","Farmacocinética"],
+["¿Cuál es su vida media aproximada?","22 horas","3 horas","48 horas","Farmacocinética"],
+["¿Cómo se metaboliza?","Por CYP3A4 en el hígado, sin inhibir ni inducir la enzima","Por el riñón sin metabolismo","Por los pulmones","Farmacocinética"],
+["¿Qué riesgo de úlceras endoscópicas se cita para AINEs tradicionales frente a coxibs?","15 a 40% frente a 3 a 5%","3 a 5% frente a 15 a 40%","Igual en ambos","Seguridad gastrointestinal"],
+["¿Qué mostró el estudio MEDAL en lo gastrointestinal?","Menor riesgo de úlceras, con o sin aspirina o IBP","Mayor riesgo de úlceras","No evaluó el estómago","Seguridad gastrointestinal"],
+["Por cada 1000 pacientes tratados, ¿qué eventos serios se citan?","6 gastrointestinales y 1 cardiovascular","1 gastrointestinal y 6 cardiovasculares","20 de cada tipo","Seguridad cardiovascular"],
+["¿En quiénes subió más la presión sistólica?","Hipertensos previos, mayores de 65 y con antihipertensivos distintos a calcioantagonistas","Jóvenes sin enfermedades","Solo en mujeres embarazadas","Seguridad cardiovascular"],
+["¿Cuál es una contraindicación de Etox?","Hipertensión no controlada","Cefalea ocasional","Resfriado común","Contraindicaciones"],
+["¿Qué pasa con la warfarina?","Eleva el INR cerca de 13%, hay que monitorizar","No interactúa en absoluto","Reduce el INR a la mitad","Interacciones"],
+["¿Y con el metotrexato?","Sin interacción por debajo de 90 mg; con 120 mg vigilar niveles","Siempre está contraindicado","Se duplica la dosis del metotrexato","Interacciones"],
+["¿Qué ocurre con el etinilestradiol de los anticonceptivos?","Sus concentraciones pueden subir 50 a 60%","Bajan a la mitad","No cambian","Interacciones"],
+["En el estudio de dolor dental (398 pacientes), ¿qué dosis fue la mínima con máxima eficacia?","120 mg","60 mg","30 mg","Estudios clave"],
+["En ese estudio, ¿cuánto duró el efecto frente a ibuprofeno 400 mg?","12,1 horas frente a 10,1 horas","6 horas frente a 12 horas","Igual en ambos","Estudios clave"]],
+m2:[
+["¿Qué tipo de medicamento es Loxonin (loxoprofeno)?","AINE de tipo profármaco","Corticoide inyectable","Relajante muscular","Puntos clave"],
+["¿Cómo se presenta Loxonin?","60 mg, caja por 15 tabletas","120 mg, caja por 7 tabletas","30 mg, caja por 30 tabletas","Presentación y dosis"],
+["¿Cuál es la dosis habitual en adultos?","60 mg, 3 veces al día","150 mg una vez al día","10 mg dos veces al día","Presentación y dosis"],
+["¿Cuál es el máximo diario recomendado?","180 mg (3 tabletas)","60 mg","360 mg","Presentación y dosis"],
+["¿Cuándo se debe evitar tomarlo?","Con el estómago vacío","Con alimentos","En la noche","Presentación y dosis"],
+["En inflamación de vías respiratorias altas a demanda, ¿qué se indica?","1 o 2 tabletas (120 mg)","5 tabletas juntas","No se usa en esa condición","Presentación y dosis"],
+["¿Cuánto duraron los tratamientos en los estudios?","Desde 2 días hasta 6 semanas","Una sola dosis","Más de un año","Presentación y dosis"],
+["¿Cuándo se alcanzan las concentraciones máximas?","A los 30 y 50 minutos","A las 6 y 8 horas","A las 24 horas","Mecanismo y farmacocinética"],
+["¿Cuál es el metabolito activo?","trans-OH","Ácido araquidónico","Tromboxano","Mecanismo y farmacocinética"],
+["¿Por qué tiene menor potencial gástrico?","Es profármaco: se activa después de absorberse","Bloquea solo la COX-1","Tiene cubierta antiácida","Seguridad gastrointestinal"],
+["¿Cómo es su relación con el citocromo P450?","No se metaboliza por él","Se metaboliza principalmente por CYP3A4","Lo inhibe por completo","Mecanismo y farmacocinética"],
+["¿Cuándo se excreta por vía urinaria?","A las 12 horas","Solo a los 7 días","Por vía biliar","Mecanismo y farmacocinética"],
+["¿Desde cuándo está disponible en Japón?","Desde 1986","Desde 2010","Desde 1960","Puntos clave"],
+["¿Qué mostró el estudio endoscópico sobre la mucosa gástrica?","Loxoprofeno 60 mg sin cambios significativos; indometacina 25 mg causó isquemia y erosiones","Ambos causaron erosiones","Ninguno se evaluó","Seguridad gastrointestinal"],
+["En cirugía de columna frente a celecoxib, ¿qué se vio?","Eficacia similar a 7 días y mayor mejoría tras dosis única a los 30 min y 2 h","Eficacia peor en todo","Sin ninguna mejoría","Estudios clave"],
+["¿Qué mostró la seguridad renal en voluntarios?","240 mg por 5 días sin cambios importantes en función renal","Daño renal en un día","No fue estudiada","Estudios clave"],
+["¿En qué aclaramiento de creatinina está contraindicado?","Menor a 30 ml/min","Menor a 90 ml/min","No hay restricción","Contraindicaciones"],
+["¿Qué edad es una contraindicación?","Menores de 16 años","Menores de 2 años","Mayores de 65 años","Contraindicaciones"],
+["¿Cómo se clasifica en embarazo y lactancia?","Categoría C y contraindicado","Seguro en todo el embarazo","Solo prohibido en el primer trimestre","Contraindicaciones"],
+["¿Cuáles son los eventos adversos más comunes?","Gastrointestinales, hipersensibilidad y somnolencia","Pérdida de cabello y hepatitis","Hipotensión severa y alucinaciones","Eventos adversos"]],
+m3:[
+["¿Cuál es el principio activo de Bicerto?","Ketoprofeno","Etoricoxib","Ciclobenzaprina","Puntos clave"],
+["¿Qué tecnología tiene el comprimido?","Bifásica, de dos capas","Cápsula blanda","Ampolla inyectable","Tecnología bifásica"],
+["¿En cuánto tiempo empieza a actuar?","15 minutos","2 horas","24 horas","Puntos clave"],
+["¿Cuánto dura la cobertura?","24 horas","4 horas","Una semana","Puntos clave"],
+["¿Cuál es la dosis habitual?","Un comprimido al día con las comidas","Uno cada 4 horas","Tres comprimidos al día","Presentación y dosis"],
+["¿Cuánto contiene cada comprimido?","75 mg por capa, 150 mg en total","150 mg por capa","50 mg en total","Presentación y dosis"],
+["¿Cómo se presenta Bicerto?","Caja por 10 comprimidos","Caja por 30 comprimidos","Caja por 14 comprimidos","Presentación y dosis"],
+["¿Cómo es el tratamiento de ataque?","300 mg al día en 2 tomas, por el menor tiempo posible","600 mg al día por un mes","75 mg cada hora","Presentación y dosis"],
+["¿Cuál es la dosis diaria máxima recomendada?","300 mg","150 mg","600 mg","Presentación y dosis"],
+["¿Cómo se usa en migraña?","Media tableta (75 mg) al inicio de la crisis","Tres tabletas","Solo en la noche","Presentación y dosis"],
+["En migraña, ¿qué intervalo mínimo hay entre dosis?","12 horas","1 hora","30 minutos","Presentación y dosis"],
+["¿Qué permite Vinko Breakline?","Partir el comprimido sin perder contenido","Pegar una etiqueta","Abrir el empaque","Tecnología bifásica"],
+["¿Cuál es el mecanismo de acción?","Inhibe la COX-1 y la COX-2","Solo la COX-2","Actúa como corticoide","Mecanismo y farmacocinética"],
+["¿Qué efecto tienen los alimentos?","Absorción más lenta y pico menor, con igual biodisponibilidad","No se absorbe","Duplican la absorción","Mecanismo y farmacocinética"],
+["¿Cuál es la unión a proteínas?","99%","50%","10%","Mecanismo y farmacocinética"],
+["¿Cuál es la vida media?","3 a 4 horas","22 horas","48 horas","Mecanismo y farmacocinética"],
+["¿Qué hace la capa blanca?","Se disuelve rápido y saca de la crisis","Se disuelve gradualmente","No se disuelve","Tecnología bifásica"],
+["¿Qué es el dolor irruptivo?","Exacerbación aguda, rápida y corta, aun con dolor basal controlado","Dolor continuo de más de 12 horas","Dolor de origen psicógeno","Manejo del dolor"],
+["¿Cómo es el dolor basal?","Continuo, de más de 12 horas al día, con analgesia a horario","Siempre breve","Solo posoperatorio","Manejo del dolor"],
+["¿Qué datos faltan en el manual de Bicerto?","Contraindicaciones, advertencias, interacciones y eventos adversos","Dosis y presentación","Indicaciones","Información pendiente"]],
+m4:[
+["¿Cuál es el principio activo de Betatreinta?","Betametasona (dipropionato más fosfato disódico)","Ketoprofeno","Etoricoxib","Puntos clave"],
+["¿Qué aporta la acción inmediata?","El fosfato disódico","El dipropionato","El conservante","Puntos clave"],
+["¿Qué aporta el efecto prolongado?","El dipropionato","El fosfato disódico","La lidocaína","Puntos clave"],
+["¿Cuánta betametasona base aporta cada mL?","5 mg del dipropionato y 2 mg del fosfato","2 mg del dipropionato y 5 mg del fosfato","10 mg del dipropionato y 4 mg del fosfato","Composición y presentación"],
+["¿Cómo se presenta?","Ampolla de 1 mL con jeringa de seguridad de 3 mL","Frasco de 50 mL","Caja por 14 tabletas","Composición y presentación"],
+["¿Cuánto dura el alivio en la mayoría de los casos?","4 semanas o más","1 hora","24 horas","Puntos clave"],
+["¿Qué vía NO es para Betatreinta?","Intravenosa","Intramuscular","Intraarticular","Contraindicaciones y advertencias"],
+["¿Qué se dice de la vía epidural?","No está aprobada; se han reportado eventos neurológicos graves","Está aprobada de rutina","Es la vía recomendada","Contraindicaciones y advertencias"],
+["¿Dónde se aplica la inyección intramuscular?","En la región glútea, profunda","En la piel superficial del brazo","Bajo la piel del abdomen","Posología y vías"],
+["¿Qué dosis se usa en articulaciones grandes (rodilla, hombro)?","1 a 2 mL","0,25 mL","5 mL","Posología y vías"],
+["¿Y en articulaciones medianas (codo, muñeca, tobillo)?","0,5 a 1 mL","2 a 4 mL","0,1 mL","Posología y vías"],
+["¿Y en articulaciones pequeñas (pie, mano, tórax)?","0,25 a 0,5 mL","1 a 2 mL","3 mL","Posología y vías"],
+["¿Cuál es la dosis intralesional en dermatología?","0,2 mL por cm², sin pasar de 1 mL por semana","5 mL por semana","1 mL diario","Posología y vías"],
+["¿Cómo se mezcla con un anestésico?","En la jeringa, no en el frasco","En el frasco","No se puede mezclar","Posología y vías"],
+["¿Qué anestésicos hay que evitar?","Los que contienen metilparabeno, propilparabeno o fenol","Lidocaína al 1%","Procaína al 2%","Posología y vías"],
+["¿Cuál es el conservante?","Cloruro de benzalconio, sin parabenos","Parabenos","Fenol","Composición y presentación"],
+["¿Dónde NO se debe inyectar?","Articulaciones infectadas o inestables y espacios intervertebrales","Rodilla sana","Hombro","Contraindicaciones y advertencias"],
+["¿Qué se debe evitar inyectar directamente?","La masa del tendón","La bursa","El glúteo","Contraindicaciones y advertencias"],
+["¿Qué interacción relevante existe?","Fenobarbital, rifampicina, fenitoína y efedrina reducen su efecto","No tiene interacciones","Solo interactúa con el alcohol","Interacciones"],
+["¿Qué se indica sobre vacunas?","No vacunar contra viruela durante la terapia","Vacunar siempre a todos","Está prohibida la vacuna de la gripe","Contraindicaciones y advertencias"]],
+m5:[
+["¿Cuál es el principio activo de Doloro?","Ciclobenzaprina","Ketoprofeno","Metocarbamol","Puntos clave"],
+["¿Qué concentraciones tiene?","5 mg y 10 mg","50 mg y 100 mg","15 mg y 30 mg","Formulación y presentaciones"],
+["¿Cuál es su indicación?","Espasmos musculares con dolor agudo musculoesquelético y fibromialgia","Infecciones respiratorias","Hipertensión arterial","Indicaciones"],
+["¿Qué dosis plantea el manual?","10 mg dos veces al día, con rango de 10 a 40 mg diarios","100 mg una vez al día","1 mg al día","Posología"],
+["¿Cuánto dura el tratamiento total?","2 a 3 semanas","6 meses","Un día","Posología"],
+["¿Desde qué edad se usa?","Mayores de 15 años","Mayores de 2 años","Mayores de 40 años","Posología"],
+["¿Qué efecto tienen los alimentos?","No interactúan con la absorción","Solo se toma en ayunas","Solo se toma con leche","Posología"],
+["¿Dónde actúa?","En la formación reticular del tallo cerebral, reduciendo motoneuronas alfa y gamma","En la COX-2","En la fosfolipasa A2","Mecanismo de acción"],
+["¿A qué se parece su estructura?","A los antidepresivos tricíclicos, sin efecto antidepresivo","A los opioides","A los corticoides","Mecanismo de acción"],
+["¿Cuál es el tipo de tortícolis más común?","Por contractura muscular","Congénita","Espasmódica","Patologías relacionadas"],
+["¿Qué es la periartritis escapulohumeral?","Hombro congelado, más frecuente después de los 40 y en mujeres","Dolor de cadera en niños","Una lesión de rodilla","Patologías relacionadas"],
+["¿Qué competidor tiene la misma molécula en 10 mg por 20 tabletas?","Ciclorelax","Rodalgin","Mioflex","Competidores"],
+["¿Qué combina Dorixina Relax?","Ciclobenzaprina 5 mg y clonixinato de lisina","Ciclobenzaprina y ibuprofeno","Metocarbamol y diclofenaco","Competidores"],
+["¿Qué combina Rodalgin?","Ciclobenzaprina 5 mg e ibuprofeno 400 mg","Ciclobenzaprina y clonixinato","Tizanidina y diclofenaco","Competidores"],
+["¿Qué dice el manual del metocarbamol?","No está indicado en fibromialgia y puede cambiar el color de la orina","Es el único indicado en fibromialgia","No tiene efecto muscular","Competidores"],
+["¿Cómo es Mitrul según el manual?","15 mg de liberación controlada, caja por 10","5 mg, caja por 30","Inyectable","Competidores"],
+["¿Cuál es la dosis máxima sugerida en el manual?","60 mg al día, a confirmar con el prospecto","10 mg al día","120 mg al día","Datos para verificar"],
+["¿Qué se dice de la dosis de 10 mg al acostarse?","Eficacia similar con menos efectos secundarios","Es peligrosa","No se estudió","Posología"],
+["¿Con qué marca se cita la bioequivalencia?","Miosan (Apsen), en Brasil","Ciclorelax, en Colombia","No se cita ninguna","Datos para verificar"],
+["¿Qué falta en el manual de Doloro?","Contraindicaciones, advertencias, interacciones y eventos adversos","Dosis","Indicaciones","Datos para verificar"]]
+};
+QUIZ.m1.push(
+["¿Cuántas tabletas trae Etox 60 mg y 90 mg por caja?","14 tabletas cada una","7 tabletas cada una","30 tabletas cada una","Presentaciones"],
+["Según la ayuda visual, ¿qué presentación se usa en cirugía dental de mayor intensidad?","Etox 120 mg","Etox 60 mg","Etox 90 mg","Presentaciones"],
+["En ortodoncia, ¿qué se destaca de etoricoxib?","No afecta el movimiento dental","Frena el movimiento dental","Solo sirve inyectado","Estudios clave"],
+["En cirugía de implantes, ¿qué mostró etoricoxib 90 mg?","Mejores puntajes de alivio que ibuprofeno 600 mg","Peores puntajes que ibuprofeno","Lo mismo que placebo","Estudios clave"],
+["En el posoperatorio de rodilla, ¿qué se observó?","No inferior a ibuprofeno y menor uso de opioides","Mayor uso de opioides","No se estudió","Estudios clave"],
+["En gota aguda, ¿con qué se comparó etoricoxib 120 mg?","Indometacina 75 mg cada 12 horas","Naproxeno 500 mg cada 12 horas","Ibuprofeno 400 mg","Estudios clave"],
+["¿Frente a qué AINE dio mayor alivio etoricoxib 90 mg en artritis reumatoide?","Naproxeno 500 mg cada 12 horas","Indometacina 75 mg cada 12 horas","Aspirina","Estudios clave"],
+["¿Con qué dosis conviene iniciar siempre el tratamiento?","La más baja y ajustar según respuesta","La más alta desde el inicio","120 mg fijos","Posología"],
+["Con diuréticos, ARA II e IECA, ¿qué hay que vigilar?","La función renal","El azúcar en sangre","La visión","Interacciones"],
+["¿Qué advertencia existe en el embarazo?","Tercer trimestre del embarazo","Solo el primer mes","Ninguna","Advertencias"]);
+QUIZ.m2.push(
+["¿En qué condición respiratoria se puede usar a demanda?","Inflamación de las vías respiratorias altas","Asma severa","Neumonía grave","Indicaciones"],
+["¿Qué indicaciones cita el manual?","Artritis reumatoide, osteoartritis, dolor lumbar y hombro congelado","Hipertensión y diabetes","Infecciones urinarias","Indicaciones"],
+["¿En qué país se desarrolló el loxoprofeno?","Japón","Alemania","Estados Unidos","Puntos clave"],
+["¿Con qué fármacos se comparó en cinco ensayos?","Celecoxib, ibuprofeno y naproxeno","Solo placebo","Corticoides","Estudios clave"],
+["¿Qué indica el manual en pacientes con asma, edema o urticaria tras aspirina?","Usarlo con precaución","Es el tratamiento de elección","No hay ninguna precaución","Precauciones e interacciones"],
+["¿Qué interacciones cita como posibles?","Warfarina, sulfonilureas, fluoroquinolonas, metotrexato, litio, tiazídicos y antihipertensivos","Solo con alimentos","Ninguna","Precauciones e interacciones"],
+["¿Dónde se registró la menor concentración del fármaco?","En el cerebro","En el riñón","En el hígado","Mecanismo y farmacocinética"],
+["En ancianos, ¿qué dosis fue eficaz?","60 mg tres veces al día","240 mg una vez al día","Ninguna dosis","Presentación y dosis"],
+["¿Qué otros usos cita el manual?","Enfermedades reumáticas prolongadas, dismenorrea, otorrinolaringología y odontología","Solo cardiología","Solo oncología","Indicaciones"],
+["¿Cómo lo ubica el manual respecto a la COX-2?","Entre los bloqueadores preferenciales de la COX-2","Como inhibidor exclusivo de la COX-2","Sin acción sobre las COX","Mecanismo y farmacocinética"]);
+QUIZ.m3.push(
+["¿Qué indicación ginecológica cita Bicerto?","Dismenorrea","Menopausia","Infertilidad","Indicaciones"],
+["¿Qué indicación urológica cita?","Cólico nefrítico","Incontinencia urinaria","Infección urinaria baja","Indicaciones"],
+["¿Qué dolor ortopédico incluye?","Esguinces y luxaciones","Escoliosis","Osteoporosis sin dolor","Indicaciones"],
+["¿Qué dolores diversos cita?","Cervicalgia, lumbago, ciática y migraña","Solo cefalea tensional","Solo gastritis","Indicaciones"],
+["¿Qué hace la capa amarilla?","Se disuelve gradualmente y mantiene la concentración","Se disuelve de inmediato","Se elimina sin absorberse","Tecnología bifásica"],
+["¿Cuánto se elimina por orina en 6 horas?","50%","5%","99%","Mecanismo y farmacocinética"],
+["¿Cuándo llega la meseta de concentración?","Entre 45 y 90 minutos","Entre 6 y 8 horas","A los 5 minutos","Mecanismo y farmacocinética"],
+["¿Qué dice el manual de Profenid (ketoprofeno)?","Inicio a los 30 minutos y no se debe partir","Inicio a los 5 minutos","Se toma una vez al día","Competidores"],
+["¿Cuánto dura el efecto de la nimesulida según el manual?","Unas 6 horas","24 horas","1 hora","Competidores"],
+["¿Qué estudio cita el manual para la seguridad cardiovascular?","Uno de 12 meses de 1991 (Schattenkirchner)","Un metaanálisis de 2023","Un estudio de una semana en 2020","Argumentos de venta"]);
+QUIZ.m4.push(
+["¿Qué dosis se usa en bursitis?","1 a 2 mL intrabursal","0,1 mL","5 mL","Posología y vías"],
+["En embarazo y lactancia, ¿qué se indica?","Valorar el riesgo y el beneficio","Es seguro sin ninguna evaluación","Nunca hay que considerarlo","Contraindicaciones y advertencias"],
+["¿Cuál es una contraindicación?","Infecciones fúngicas sistémicas","Artritis reumatoide","Tortícolis","Contraindicaciones y advertencias"],
+["¿Cuánto tarda el alivio tras la inyección intraarticular?","De 2 a 4 horas","De 2 a 4 días","3 semanas","Posología y vías"],
+["¿Qué aguja se usa en la inyección intralesional dermatológica?","Aguja fina (calibre 25 o 26)","Aguja gruesa calibre 14","No requiere aguja","Posología y vías"],
+["¿Cómo se retira el corticoide tras un tratamiento prolongado?","Reduciendo la dosis de forma gradual","Suspendiéndolo de golpe","Duplicando la dosis","Contraindicaciones y advertencias"],
+["¿Qué reacciones adversas frecuentes se citan?","Insomnio, dispepsia, aumento del apetito e infecciones","Pérdida de cabello y fiebre alta","Hipoglucemia grave","Reacciones adversas"],
+["¿Qué dosis inicial puede requerir una enfermedad grave como lupus sistémico?","Hasta 2 mL","0,1 mL","10 mL","Posología y vías"],
+["¿Qué combinación aumenta el riesgo de úlceras gastrointestinales?","Con AINEs y alcohol","Con vitaminas","Con agua","Interacciones"],
+["¿Qué competidor combina acetato y fosfato de betametasona?","Inflacor Retard","Diprospan","Duo Decadron","Competidores"]);
+QUIZ.m5.push(
+["Según la presentación, ¿cómo se usa Doloro 5 mg?","1 tableta 3 veces al día","1 tableta una vez al mes","5 tabletas juntas","Posología"],
+["Según la presentación, ¿cómo se usa Doloro 10 mg?","1 a 2 tabletas, 2 a 3 veces al día","1 tableta cada hora","No tiene dosis definida","Posología"],
+["¿Cuáles son las fases de la periartritis escapulohumeral?","Dolorosa, de rigidez y de descongelamiento","Aguda, crónica y terminal","Solo dolorosa","Patologías relacionadas"],
+["¿Qué otros relajantes cita el manual?","Metocarbamol (Mioflex, Robaxin Gold, Robaxifen)","Ketoprofeno y diclofenaco","Betametasona","Competidores"],
+["¿Qué condiciones relacionadas incluye el manual?","Contractura, fibromialgia, síndrome miofascial, lumbalgia, cervicalgia y tortícolis","Solo infecciones","Solo cefalea","Patologías relacionadas"],
+["¿Qué caracteriza la fibromialgia en la presentación?","Dolor difuso, fatiga y alteración del sueño","Fiebre y tos","Hipertensión y mareo","Indicaciones"],
+["¿Qué plantea el manual sobre pacientes polimedicados?","Lo presenta como seguro para ellos (afirmación a verificar)","Está prohibido en ellos","No dice nada","Datos para verificar"],
+["¿Con qué dice el manual que puede asociarse?","Antiinflamatorios e ISRS (verificar riesgos en el prospecto)","Con nada, nunca","Solo con opioides","Datos para verificar"],
+["¿Con qué se asocia el nombre de la marca?","Dolor muscular","Dolor de cabeza","Dolor de oído","Puntos clave"],
+["¿Qué advierte el manual de Rodalgin?","Riesgo gastrointestinal del ibuprofeno y contraindicación en alergia a AINEs","Que es seguro para todos","Que contiene metocarbamol","Competidores"]);
+var COMP={
+m1:["Competidores y precio",["Arcoxia: marca de referencia del etoricoxib.","Etoricoxib de otros laboratorios en Colombia: Coxetor (Altadis), Torrox (Hetero Labs) y Etoricoxib Genfar.","En los estudios se compara con naproxeno, diclofenaco, ibuprofeno e indometacina.","Precio: por confirmar. Tus materiales no traen precios actuales de Etox; consúltalos en farmacias o en el sistema oficial de precios antes de mostrarlos."]],
+m2:["Competidores y precio",["El manual no lista marcas competidoras. Compara el loxoprofeno con celecoxib, ibuprofeno y naproxeno en estudios.","Precio: por confirmar. El manual no trae precios; agrégalos desde una fuente verificada."]],
+m3:["Competidores y precio",["Según el manual: Profenid (ketoprofeno), diclofenaco, aceclofenaco, nimesulida, etodolaco, etoricoxib (Arcoxia) y celecoxib.","El manual afirma que Bicerto cuesta 35% menos que el medicamento de referencia, sin dar cifras: verifica ese dato.","Precio en pesos: por confirmar."]],
+m4:["Competidores y precio",["Betaduo, Diprospan y Diprofos: misma combinación de betametasona.","Inflacor Retard (acetato más fosfato de betametasona) y Duo Decadron (dexametasona).","Precios de la ayuda visual: Betatreinta $38.400, Betaduo vial $52.700 (37% más) e Inflacor Retard $59.100 (54% más).","Atención: esos precios son de febrero de 2015 (fuente La Rebaja Virtual). Actualízalos antes de usarlos."]],
+m5:["Competidores y precio",["Misma molécula: Ciclorelax (Roemmers) 10 mg x 20 y Mitrul (Tecnofarma) 15 mg de liberación controlada.","Combinaciones: Dorixina Relax y Rodalgin.","Otros relajantes: metocarbamol (Mioflex, Robaxin Gold, Robaxifen).","El manual dice que Doloro es más asequible, sin dar cifras. Precio en pesos: por confirmar."]]
+};
+Object.keys(COMP).forEach(function(k){var a=PROD[k].sec;a.splice(a.length-1,0,COMP[k])});
+function loadH(){try{return JSON.parse(localStorage.getItem("qh_"+(user?user.id:"x"))||"{}")}catch(e){return {}}}
+function saveH(h){try{localStorage.setItem("qh_"+(user?user.id:"x"),JSON.stringify(h))}catch(e){}}
+function renderMods(){var H=loadH(),h="",ks=Object.keys(H),tot=0,sum=0;
+ MODS.forEach(function(m){var on=user.mods.indexOf(m.id)>-1,st=H[m.id];
+  h+='<button class="mod" data-id="'+m.id+'"'+(on?'':' disabled')+' style="--c1:'+m.c1+';--c2:'+m.c2+'"><span class="ic">'+(on?m.i:'🔒')+'</span><span><b>'+m.n+'</b><small>'+(on?(st?'Mejor nota: '+st.best+'/10':m.s):'No habilitado')+'</small></span></button>'});
+ $("mods").innerHTML=h;
+ ks.forEach(function(k){tot+=H[k].n;sum+=H[k].best});
+ $("stats").innerHTML="<div><b>"+tot+"</b>cuestionarios hechos</div><div><b>"+(ks.length?(sum/ks.length).toFixed(1):"–")+"</b>mejor promedio</div>"}
+function showHist(id){var st=loadH()[id],e=$("hist");if(!st){e.hidden=true;return}
+ e.hidden=false;e.innerHTML="<b>Tu progreso en este producto</b><br>Intentos: "+st.n+" · Mejor nota: "+st.best+"/10 · Última: "+st.last+"/10"+li(st.hist.slice(-5).reverse().map(function(x){return x.d+" · "+x.s+"/10 ("+x.a+" de "+x.t+")"}))}
+var curProd="m1",qz=[],qi=0,qok=0,miss=[];
+function shuf(a){for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1)),t=a[i];a[i]=a[j];a[j]=t}return a}
+function showQ(){var q=qz[qi];$("qp").textContent="Pregunta "+(qi+1)+" de "+qz.length;$("qq").textContent=q[0];
+ var o=shuf([[q[1],1],[q[2],0],[q[3],0]]),box=$("qo");box.innerHTML="";
+ o.forEach(function(x){var b=document.createElement("button");b.className="opt";b.dataset.ok=x[1];b.textContent=x[0];box.appendChild(b)});
+ $("qbar").style.width=(qi/qz.length*100)+"%";$("qf").hidden=true;$("qn").hidden=true;$("qres").hidden=true}
+function startQuiz(id){curProd=id;qz=shuf(QUIZ[id].slice()).slice(0,20);qi=0;qok=0;miss=[];$("qt").textContent="Cuestionario · "+PROD[id].t.split(" · ")[0];show("quiz");showQ()}
+$("qbtn").onclick=function(){startQuiz(curProd)};
+$("qback").onclick=function(){openProd(curProd)};
+$("qo").onclick=function(e){var b=e.target.closest("button");if(!b||b.disabled)return;var q=qz[qi],ok=b.dataset.ok==="1";
+ [].forEach.call($("qo").children,function(c){c.disabled=true;if(c.dataset.ok==="1")c.classList.add("good")});
+ if(ok)qok++;else{b.classList.add("bad");miss.push(q[4])}
+ $("qf").hidden=false;$("qf").textContent=ok?"✅ Correcto.":"❌ No es esa. Correcta: "+q[1]+" · Repasa: "+q[4];
+ $("qn").hidden=false;$("qn").textContent=qi+1<qz.length?"Siguiente":"Ver resultado"};
+$("qn").onclick=function(){qi++;if(qi<qz.length)showQ();else endQ()};
+function endQ(){$("qo").innerHTML="";$("qf").hidden=true;$("qn").hidden=true;$("qq").textContent="Cuestionario terminado";$("qp").textContent="";
+ var n=qz.length,sc=Math.max(1,Math.round(qok/n*10)),c=sc>=8?"#16a34a":sc>=6?"#d97706":"#dc2626",u=miss.filter(function(x,i){return miss.indexOf(x)===i}),r=$("qres");
+ var H=loadH(),st=H[curProd]||{n:0,best:0,last:0,hist:[]},now=new Date();st.n++;st.last=sc;st.best=Math.max(st.best,sc);st.hist.push({d:now.toLocaleDateString("es-CO")+" "+now.toLocaleTimeString("es-CO",{hour:"2-digit",minute:"2-digit"}),s:sc,a:qok,t:n});if(st.hist.length>20)st.hist=st.hist.slice(-20);H[curProd]=st;saveH(H);$("qbar").style.width="100%";
+ r.hidden=false;r.innerHTML="<div class='score' style='background:"+c+"'>"+sc+"<small>/10</small></div><b class='h'>"+(sc>=8?"🎉 ":"")+"Aciertos: "+qok+" de "+n+" · Tu mejor nota: "+st.best+"/10</b>"+(u.length?"<b class='h'>Temas para repasar</b>"+li(u):"<b class='h'>¡Sin errores!</b>")+"<button class='btn' id='qagain'>Hacer otro cuestionario (preguntas nuevas)</button>";
+ $("qagain").onclick=function(){startQuiz(curProd)}}
 </script>
 </body>
 </html>
