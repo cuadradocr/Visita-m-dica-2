@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Guía de Visita Médica · Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef2fa;--card:#fff;--ink:#0f1f3d;--mute:#5b6985;--brand:#153e9c;--brand2:#2f7ef0;--brand-ink:#fff;--warm:#f5b800;--line:#d6deee;--off:#e3e9f6;--sh:0 8px 22px rgba(21,62,156,.14);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a1226;--card:#111c38;--ink:#e8eefc;--mute:#93a3c4;--brand:#5b8cff;--brand2:#3fb6ff;--brand-ink:#07122b;--warm:#ffc933;--line:#223158;--off:#18254a;--sh:0 8px 22px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#0a1226;--card:#111c38;--ink:#e8eefc;--mute:#93a3c4;--brand:#5b8cff;--brand2:#3fb6ff;--brand-ink:#07122b;--warm:#ffc933;--line:#223158;--off:#18254a;--sh:0 8px 22px rgba(0,0,0,.4)}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Figtree,system-ui,sans-serif;line-height:1.5;min-height:100vh}
+.wrap{max-width:560px;margin:0 auto;padding:16px 16px 40px}
+h1{font-size:1.8rem;font-weight:800;line-height:1.15;margin:0 0 6px}
+h2{font-size:1.15rem;margin:26px 0 12px}
+p{margin:0 0 12px;color:var(--mute)}
+.hero{background:linear-gradient(135deg,#0c2a6b 0%,#1d4ed8 60%,#f5b800 150%);color:#fff;border-radius:22px;padding:26px 22px;margin-bottom:20px;box-shadow:var(--sh)}
+.hero h1,.hero p{color:#fff}.hero p{opacity:.92;margin:0}
+.logo{font-size:2.4rem;line-height:1;margin-bottom:10px}
+.card{background:var(--card);border-radius:20px;padding:18px;box-shadow:var(--sh);border:1px solid var(--line)}
+label{display:block;font-weight:600;margin:14px 0 6px}
+input{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink);font:inherit}
+input:focus,button:focus-visible{outline:3px solid var(--warm);outline-offset:2px}
+button{font:inherit;cursor:pointer}
+.btn{width:100%;margin-top:20px;padding:14px;border:0;border-radius:12px;background:linear-gradient(135deg,var(--brand),var(--brand2));color:var(--brand-ink);font-weight:800}
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.link{background:none;border:0;color:var(--brand);font-weight:600;padding:6px 0}
+.err{color:#c0392b;font-weight:600;min-height:1.4em;margin-top:10px}
+.hint{font-size:.88rem;background:var(--off);padding:10px 12px;border-radius:12px;margin-top:18px}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.hero .link{color:#fff;background:rgba(255,255,255,.2);padding:6px 12px;border-radius:999px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mod{position:relative;overflow:hidden;text-align:left;padding:16px 14px 14px;border:0;border-radius:20px;background:linear-gradient(145deg,var(--c1),var(--c2));color:#fff;min-height:132px;box-shadow:var(--sh);display:flex;flex-direction:column;justify-content:space-between}
+.mod .ic{font-size:2rem;line-height:1}
+.mod b{display:block;font-size:1.05rem}.mod small{display:block;opacity:.92;font-size:.8rem;line-height:1.3}
+.mod[disabled]{background:var(--off);color:var(--mute);box-shadow:none;cursor:not-allowed;border:1.5px dashed var(--line)}
+.mod[disabled] .ic{filter:grayscale(1);opacity:.6}
+.sim{width:100%;display:flex;gap:14px;align-items:center;text-align:left;padding:18px;border:0;border-radius:20px;color:#fff;background:linear-gradient(135deg,#0c2a6b,#1d4ed8 55%,#f5b800);box-shadow:var(--sh)}
+.sim .ic{font-size:2.2rem}.sim b{font-size:1.1rem;display:block}.sim small{opacity:.95}
+.pers{display:grid;gap:12px}
+.pers button{display:flex;gap:14px;align-items:center;text-align:left;padding:14px;border-radius:18px;border:2px solid transparent;background:var(--card);color:var(--ink);box-shadow:var(--sh)}
+.pers .face{flex:none;width:58px;height:58px;border-radius:16px;display:grid;place-items:center;font-size:1.9rem;background:linear-gradient(145deg,var(--c1),var(--c2))}
+.pers b{font-size:1.05rem}.pers span.t{display:block;color:var(--mute);font-size:.9rem;line-height:1.35}
+.pers button[aria-pressed=true]{border-color:var(--c1);background:var(--off)}
+.note{border-left:4px solid var(--warm);padding:10px 12px;background:var(--off);border-radius:0 12px 12px 0;margin-top:18px;font-size:.92rem}
+.note ul{margin:4px 0 8px;padding-left:18px}.note b.h{display:block;margin-top:8px}.note .q{font-weight:800;margin-top:10px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;box-shadow:var(--sh)}
+summary{cursor:pointer;padding:14px;font-weight:800;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";float:right;color:var(--brand)}
+details[open] summary::after{content:"–"}
+details>div{padding:0 14px 12px;font-size:.95rem}
+details ul{margin:4px 0 8px;padding-left:18px}
+.foot{font-size:.8rem;margin-top:16px}
+select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit}
+.b{max-width:86%;padding:10px 12px;border-radius:14px;margin:8px 0;white-space:pre-wrap}
+.b.d{background:var(--card);border:1px solid var(--line)}
+.b.v{background:linear-gradient(135deg,var(--brand),var(--brand2));color:var(--brand-ink);margin-left:auto}
+.inp{position:sticky;bottom:0;display:flex;gap:8px;padding:10px 0;background:var(--bg)}
+.inp input{flex:1}
+body{font-size:16px;letter-spacing:.005em}
+section{animation:fi .25s ease}
+@keyframes fi{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+button{transition:transform .12s ease,box-shadow .12s ease}
+button:active{transform:scale(.97)}
+.hero{position:relative;overflow:hidden;border-radius:26px}
+.hero::after{content:"";position:absolute;right:-50px;top:-50px;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.12)}
+.hero::before{content:"";position:absolute;right:30px;bottom:-60px;width:120px;height:120px;border-radius:50%;background:rgba(245,184,0,.28)}
+.mod{position:relative;overflow:hidden;border-radius:22px}
+.mod::after{content:"";position:absolute;right:-24px;top:-24px;width:90px;height:90px;border-radius:50%;background:rgba(255,255,255,.16)}
+.card{border-radius:24px}
+h2{display:flex;align-items:center;gap:8px}
+h2::before{content:"";width:6px;height:20px;border-radius:3px;background:var(--warm)}
+#cinfo{display:inline-block;background:var(--off);padding:6px 12px;border-radius:999px;font-weight:600;font-size:.9rem;color:var(--ink)}
+.b.d{border-left:4px solid var(--dc,var(--line))}
+.score{width:84px;height:84px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.9rem;font-weight:800;margin:4px auto 8px}
+.score small{font-size:.8rem;opacity:.85}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 14px;border-radius:14px;border:1.5px solid var(--brand);background:var(--card);color:var(--ink);font:inherit}
+[hidden]{display:none!important}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<section id="login">
+  <div class="hero"><div class="logo">🩺</div><h1>Guía de Visita Médica</h1><p>Demostración: productos y práctica de visita guiada.</p></div>
+  <div class="card">
+    <label for="u" style="margin-top:0">Usuario</label>
+    <input id="u" autocomplete="username" autocapitalize="none">
+    <label for="p">Contraseña</label>
+    <input id="p" type="password" autocomplete="current-password">
+    <div class="err" id="err" role="alert"></div>
+    <button class="btn" id="go" style="margin-top:6px">Entrar</button>
+  </div>
+</section>
+
+<section id="home" hidden>
+  <div class="hero"><div class="top"><div><h1 id="hi"></h1><p id="role"></p></div><button class="link" id="out">Salir</button></div></div>
+  <h2>Mis módulos</h2>
+  <div class="grid" id="mods"></div>
+  <h2>Entrenamiento</h2>
+  <button class="sim" id="toSim"><span class="ic">🎯</span><span><b>Visita de ejemplo</b><small>Practica con respuestas guiadas</small></span></button>
+</section>
+
+<section id="simu" hidden>
+  <button class="link" id="back">‹ Volver</button>
+  <h1>Elige a tu médico</h1>
+  <p>Cada personalidad exige una forma distinta de presentar tu mensaje.</p>
+  <div class="pers" id="pers"></div>
+  <div class="note" id="fiche" hidden></div>
+  <button class="btn" id="start" disabled>Iniciar visita de ejemplo (Etox)</button>
+  <div class="note" id="note" hidden></div>
+</section>
+
+<section id="chat" hidden>
+  <div class="top"><button class="link" id="exitv">‹ Salir</button><button class="link" id="snd">🔊 Voz</button></div>
+  <p id="cinfo"></p>
+  <div id="msgs"></div>
+  <div id="opts"></div>
+  <div class="note" id="eval" hidden></div>
+  <p class="foot">Demostración guiada: elige tu respuesta en cada momento de la visita.</p>
+</section>
+
+<section id="prod" hidden>
+  <button class="link" id="backP">‹ Volver</button>
+  <h1 id="pt"></h1><p id="ps"></p>
+  <div id="acc"></div>
+  <p class="foot">Material de entrenamiento basado en el manual y la ayuda visual del producto. Uso exclusivo para el cuerpo médico.</p>
+</section>
+
+</div>
+<script>
+var USERS={
+ visitador1:{pass:"1234",name:"Visitador 1",role:"Visitador médico",mods:["m1","m2"]},
+ visitador2:{pass:"1234",name:"Visitador 2",role:"Visitador médico",mods:["m1"]},
+ admin:{pass:"admin",name:"Administrador",role:"Administrador",mods:["m1","m2","m3","m4","m5"]},
+ jefe:{pass:"demo2026",name:"Invitado",role:"Versión de demostración",mods:["m1","m2","m3","m4","m5"]}
+};
+var MODS=[
+ {id:"m1",n:"Etox",i:"💊",c1:"#0b4f9c",c2:"#38bdf8",s:"Etoricoxib"},
+ {id:"m2",n:"Loxonin",i:"🧬",c1:"#0e7c86",c2:"#2a9d8f",s:"Loxoprofeno"},
+ {id:"m3",n:"Bicerto",i:"⚡",c1:"#c2410c",c2:"#fb923c",s:"Ketoprofeno"},
+ {id:"m4",n:"Betatreinta",i:"💉",c1:"#0e7490",c2:"#22d3ee",s:"Betametasona"},
+ {id:"m5",n:"Doloro",i:"💪",c1:"#6d28d9",c2:"#a78bfa",s:"Ciclobenzaprina"}
+];
+var PERS=[
+ {id:"t",n:"Tiburón pragmático",k:"Dominante / D",i:"🦈",c1:"#b91c1c",c2:"#f87171",d:"Directo, resolutivo y orientado a resultados.",dec:"Desde los resultados y la rapidez.",val:["agilidad","objetividad","eficiencia","impacto"],hab:["tono directo","mensajes breves","enfoque en resultados","propuestas concretas"],evi:["rodeos","exceso de detalles","indecisión","perder el tiempo"],anc:"Ve al punto, demuestra impacto.",cla:["Abre con el objetivo y el beneficio esperado.","Resalta resultados, diferenciación y eficiencia.","Cierra con una propuesta concreta de siguiente paso."]},
+ {id:"a",n:"Águila expresiva",k:"Influencia / I",i:"🦅",c1:"#b45309",c2:"#fbbf24",d:"Entusiasta, visionaria y persuasiva.",dec:"Desde la inspiración y las posibilidades.",val:["innovación","diferenciación","reconocimiento","oportunidades"],hab:["tono enérgico","mensajes visuales","ejemplos inspiradores","apertura al diálogo"],evi:["rigidez excesiva","monotonía","saturarlo de datos","cortar su participación"],anc:"Inspira primero, conecta con la oportunidad.",cla:["Destaca novedades y valor diferencial.","Usa ejemplos visuales y lenguaje inspirador.","Cierra invitando a explorar una oportunidad o paciente candidato."]},
+ {id:"l",n:"Lobo analítico",k:"Estabilidad / S",i:"🐺",c1:"#15803d",c2:"#4ade80",d:"Reflexivo, metódico y orientado a la seguridad.",dec:"Desde la lógica, el análisis y la seguridad.",val:["evidencia","precisión","orden","consistencia"],hab:["tono calmado","estructura clara","datos y respaldo","paso a paso"],evi:["presionarlo","improvisación","exageraciones","respuestas ambiguas"],anc:"Da claridad, sustenta y genera confianza.",cla:["Prioriza evidencia, seguridad y sustento clínico.","Presenta la información de forma ordenada y concreta.","Cierra confirmando acuerdo y próximos pasos sin presionar."]},
+ {id:"g",n:"Gato afable",k:"Cumplimiento / C",i:"🐱",c1:"#1d4ed8",c2:"#60a5fa",d:"Amable, cercano y confiable.",dec:"Desde la confianza y el relacionamiento.",val:["cercanía","seguridad","armonía","experiencia del paciente"],hab:["tono cálido","ritmo tranquilo","conexión humana","mensajes de confianza"],evi:["confrontarlo","presionarlo","ser muy frío","hablar solo de datos"],anc:"Conecta primero, influye después.",cla:["Prioriza la confianza antes del argumento técnico.","Relaciona el beneficio con la experiencia del paciente.","Cierra con una propuesta amable y segura."]}
+];
+var user=null,pick=null;
+function $(i){return document.getElementById(i)}
+function show(id){["login","home","simu","prod","chat"].forEach(function(s){$(s).hidden=s!==id});window.scrollTo(0,0)}
+function login(){
+ var k=$("u").value.trim().toLowerCase(),x=USERS[k];
+ if(!x||x.pass!==$("p").value){$("err").textContent="Usuario o contraseña incorrectos. Revisa los datos e intenta de nuevo.";return}
+ user=x;$("err").textContent="";$("p").value="";
+ $("hi").textContent="Hola, "+x.name;$("role").textContent=x.role;
+ var h="";
+ MODS.forEach(function(m){
+  var on=x.mods.indexOf(m.id)>-1;
+  h+='<button class="mod" data-id="'+m.id+'"'+(on?'':' disabled')+' style="--c1:'+m.c1+';--c2:'+m.c2+'"><span class="ic">'+(on?m.i:'🔒')+'</span><span><b>'+m.n+'</b><small>'+(on?m.s:'No habilitado')+'</small></span></button>';
+ });
+ $("mods").innerHTML=h;show("home");
+}
+function drawPers(){
+ var h="";
+ PERS.forEach(function(p){h+='<button data-id="'+p.id+'" aria-pressed="'+(pick===p.id)+'" style="--c1:'+p.c1+';--c2:'+p.c2+'"><span class="face">'+p.i+'</span><span><b>'+p.n+'</b><span class="t">'+p.k+' · '+p.d+'</span></span></button>'});
+ $("pers").innerHTML=h;
+}
+function li(a){return "<ul><li>"+a.join("</li><li>")+"</li></ul>"}
+var PROD={m1:{t:"Etox · Etoricoxib",s:"AINE selectivo COX-2 (COXIB de segunda generación)",sec:[
+["Puntos clave",["Seguridad gastrointestinal frente a AINEs tradicionales.","Efectividad en dolor agudo, inflamación y manejo prolongado del dolor.","Dosis única diaria."]],
+["Presentaciones y dosis",["Etox 60 mg: caja por 14 tabletas.","Etox 90 mg: caja por 14 tabletas.","Etox 120 mg: caja por 7 tabletas.","Una vez al día; iniciar con la dosis más baja y ajustar según respuesta.","Dolor agudo y dismenorrea primaria: 120 mg solo durante el dolor, máximo una semana.","Artritis gotosa aguda: 120 mg/día, máximo 7 días.","Artritis reumatoide: iniciar con 60 mg (usual 60 a 90 mg).","Osteoartritis: iniciar con 60 mg. El manual cita 60 a 90 mg en estudios, pero la ayuda visual indica máximo 60 mg: confirmar con la información oficial."]],
+["Qué dosis para qué paciente",["60 mg: previene el dolor dental antes de una cirugía (entre 6 y 12 horas) y el dolor posterior a extracción dental en adultos.","90 mg: dolor agudo.","120 mg: cirugía dental de mayor intensidad y posoperatorio."]],
+["Mecanismo y farmacocinética",["Inhibe de forma exclusiva la COX-2: efecto antiinflamatorio con bajo nivel de gastrolesividad.","Biodisponibilidad cercana al 100%; los alimentos no afectan la absorción.","Absorción máxima en aproximadamente 1 hora; vida media cercana a 22 horas.","Metabolismo hepático por CYP3A4, sin inhibir ni inducir la enzima.","Excreción: orina 70%, heces 20%. No estudiado en menores de 12 años."]],
+["Seguridad gastrointestinal",["Riesgo de úlceras endoscópicas: 15 a 40% con AINEs tradicionales frente a 3 a 5% con coxibs (según el manual).","MEDAL: menor riesgo de úlceras gastrointestinales, con o sin aspirina o inhibidores de bomba de protones.","Ojo en la visita: evitar caer en trampas; la ventaja es relativa, no ausencia de riesgo."]],
+["Seguridad cardiovascular",["Los AINEs pueden elevar la presión arterial y causar retención de líquidos.","La presión sistólica subió más en hipertensos previos, mayores de 65 años y pacientes con antihipertensivos distintos a calcioantagonistas; también obesidad y diabetes.","El riesgo trombótico de la clase COX-2 puede aumentar con dosis y duración: usar la menor dosis y el menor tiempo posible."]],
+["Contraindicaciones",["Hipersensibilidad al principio activo o excipientes; alergia al ácido acetilsalicílico.","Broncoespasmo, rinitis aguda, pólipos nasales, edema angioneurótico.","Úlcera péptica.","Hipertensión no controlada, insuficiencia cardíaca moderada a severa, disfunción ventricular izquierda.","Enfermedad coronaria, bypass coronario, enfermedad arterial periférica, enfermedad cerebrovascular.","Insuficiencia hepática severa."]],
+["Advertencias",["Tercer trimestre del embarazo.","Insuficiencia renal grave; insuficiencia hepática moderada.","Dislipidemia y diabetes.","Uso con ácido acetilsalicílico aumenta el riesgo de úlcera péptica."]],
+["Interacciones",["Etinilestradiol (anticonceptivos orales): puede elevar sus concentraciones 50 a 60%.","Warfarina: eleva el INR cerca de 13%; monitorear.","Metotrexato: sin interacción por debajo de 90 mg; con 120 mg vigilar niveles.","Diuréticos, ARA II e IECA: vigilar función renal."]],
+["Estudios clave",["Dolor dental (398 pacientes, tercer molar): 120 mg es la dosis mínima con máxima eficacia; alivio desde unos 24 minutos; duración 12,1 h frente a 10,1 h de ibuprofeno 400 mg.","Artritis reumatoide: 90 mg dio mayor alivio que naproxeno 500 mg c/12 h.","Posoperatorio de rodilla: no inferior a ibuprofeno y menor uso de opioides.","Gota aguda: 120 mg con eficacia similar a indometacina 75 mg c/12 h.","Odontología: en implantes, 90 mg superó a ibuprofeno 600 mg; en ortodoncia no afecta el movimiento dental."]],
+["Preguntas que hará el médico",["¿Y el riesgo cardiovascular? Reconocerlo: depende de dosis, duración y perfil del paciente; recomendar la menor dosis por el menor tiempo y vigilar la presión.","¿Sirve en pacientes con warfarina? Es posible con monitoreo cercano del INR.","¿Por qué no ibuprofeno? Menor riesgo gastrointestinal, dosis única diaria y alivio más prolongado en dolor dental."]]]},
+m2:{t:"Loxonin · Loxoprofeno",s:"AINE profármaco de uso oral (tabletas de 60 mg)",sec:[
+["Puntos clave",["Profármaco: se transforma en su forma activa solo después de absorberse en el tracto gastrointestinal, por eso tiene menor potencial de eventos adversos gástricos que otros AINEs de uso repetido.","Absorción rápida: las concentraciones máximas se alcanzan a los 30 minutos (loxoprofeno) y 50 minutos (metabolito activo).","Amplia experiencia: disponible en Japón desde 1986, donde es el AINE más prescrito."]],
+["Presentación y dosis",["Loxonin 60 mg: caja por 15 tabletas.","Adultos: 60 mg, 3 veces al día en dolor e inflamación.","A demanda: 1 o 2 tabletas (120 mg) en inflamación de vías respiratorias altas, o una tableta según necesidad (hasta dos veces al día).","No exceder 3 tabletas (180 mg) al día y evitar tomarlo con el estómago vacío.","Duración en estudios: desde 2 días hasta 6 semanas según el tipo de dolor.","Ancianos: 60 mg tres veces al día fue eficaz, con baja incidencia de efectos secundarios."]],
+["Indicaciones",["Artritis reumatoide, osteoartritis, dolor lumbar, hombro congelado y síndrome cuello-hombro-brazo.","Dolor e inflamación por cirugía, heridas y extracción dental.","Fiebre o dolor por inflamación de las vías respiratorias altas.","Otros usos citados: enfermedades reumáticas prolongadas (hasta 6 meses), dismenorrea y procesos inflamatorios ginecológicos, otorrinolaringología y odontología (abscesos periodontales, alveolitis, gingivitis)."]],
+["Mecanismo y farmacocinética",["AINE no selectivo de tipo profármaco; el manual lo ubica entre los bloqueadores preferenciales de la COX-2.","Tras la absorción se convierte en su metabolito activo trans-OH, que suprime la síntesis de prostaglandinas.","No se metaboliza por el citocromo P450.","Distribución rápida a riñón, corazón, pulmón e hígado; baja concentración en cerebro.","Se excreta por vía urinaria a las 12 horas."]],
+["Seguridad gastrointestinal",["Al administrarse inactivo, no actúa directamente sobre la mucosa gástrica ni afecta mucho el moco protector.","En un estudio endoscópico, loxoprofeno 60 mg no produjo cambios significativos en la mucosa; indometacina 25 mg sí causó isquemia y erosiones hemorrágicas.","Ojo en la visita: sigue siendo un AINE; no prometer ausencia de riesgo."]],
+["Estudios clave",["Cinco ensayos con comparador activo: eficacia similar a celecoxib, ibuprofeno y naproxeno en dolor posoperatorio, artrosis de rodilla, dolor lumbar y hombro congelado.","Cirugía de columna: eficacia similar a celecoxib durante 7 días; tras una dosis única, mayor mejoría que celecoxib a los 30 minutos y a las 2 horas.","Dolor lumbar en adultos mayores (4024 pacientes): mejoría subjetiva tras 4 semanas según el estándar de la Asociación Ortopédica Japonesa.","Seguridad renal: en voluntarios, 240 mg por 5 días sin cambios importantes en función hematopoyética, hepática ni renal."]],
+["Contraindicaciones",["Hipersensibilidad conocida al loxoprofeno.","Úlcera péptica o gastroduodenal activa.","Disfunción hepática grave.","Aclaramiento de creatinina menor a 30 ml/min (sin ajuste si es mayor a 30).","Menores de 16 años.","Embarazo y lactancia (categoría C de riesgo)."]],
+["Precauciones e interacciones",["Cuidado en pacientes con asma, edema o urticaria tras aspirina u otros AINEs.","Como otros AINEs, puede interactuar con warfarina, sulfonilureas, fluoroquinolonas, metotrexato, litio, diuréticos tiazídicos y antihipertensivos."]],
+["Eventos adversos",["Gastrointestinales: molestias gástricas, dolor abdominal, náuseas, vómitos, pérdida de apetito.","Hipersensibilidad: edema, erupción cutánea, urticaria, prurito y fiebre.","Somnolencia."]],
+["Preguntas que hará el médico",["¿Es selectivo de COX-2? Es un AINE no selectivo de tipo profármaco; el manual lo describe como preferencial de COX-2. Su diferencial es ser profármaco.","¿Es más seguro que otros AINEs para el estómago? Tiene menor potencial de eventos gástricos por ser profármaco, pero sigue siendo un AINE.","¿Por qué tres veces al día? La dosis habitual es 60 mg cada 8 horas, sin pasar de 180 mg al día.","¿Sirve en pacientes con insuficiencia renal? Sin ajuste si el aclaramiento de creatinina es mayor a 30 ml/min; por debajo, está contraindicado."]]]},
+m3:{t:"Bicerto · Ketoprofeno",s:"AINE (inhibe COX-1 y COX-2) con liberación bifásica de dos capas",sec:[
+["Puntos clave",["Comprimido bifásico de dos capas: una de liberación inmediata (inicio de acción en 15 minutos) y otra de liberación prolongada (cobertura de 24 horas).","Una sola toma al día.","Tecnología Vinko Breakline: se puede partir por la mitad sin perder contenido.","Según el manual, por su acción analgésica no necesita analgésicos asociados.","Lema del lanzamiento: acierte doble vez."]],
+["Presentación y dosis",["Caja por 10 comprimidos de liberación prolongada de 2 capas; cada capa tiene 75 mg, para 150 mg de ketoprofeno por comprimido.","Un comprimido al día durante las comidas.","Tratamiento de ataque: 300 mg (2 comprimidos) al día repartidos en 2 tomas, por el menor tiempo posible; luego mantenimiento con 150 mg/día en toma única.","Migraña: media tableta (75 mg) al inicio de la crisis; la mejoría suele notarse a las 2 horas. Si reaparece el mismo día, segunda dosis (75 o 150 mg) con mínimo 12 horas de intervalo. Si 75 mg no basta, una tableta (150 mg) en la próxima crisis.","Dosis diaria máxima recomendada: 300 mg."]],
+["Indicaciones",["Otorrinolaringología: sinusitis, otitis, faringitis, laringitis, amigdalitis.","Ginecología: anexitis, parametritis, endometritis, dismenorrea.","Urología: cólico nefrítico, orquiepididimitis, prostatitis.","Odontología: periodontitis, pulpitis, abscesos, extracción de dientes.","Reumatología: artritis reumatoide, espondilitis anquilosante, gota, osteoartritis, bursitis, tendinitis, tenosinovitis, epicondilitis, entre otras.","Ortopedia: contusiones, fracturas, esguinces y luxaciones.","Dolores diversos: cervicalgia, lumbago, ciática, neuralgia cervicobraquial, posoperatorio y migraña."]],
+["Manejo del dolor: basal e irruptivo",["Dolor basal: continuo, de más de 12 horas al día; se maneja con analgesia a horario y dosis fijas. Ejemplo: cólico menstrual.","Dolor irruptivo: exacerbación aguda de rápida aparición y corta duración, aun con dolor basal controlado. Ejemplo: fractura de costilla que se agudiza al estornudar.","El dolor irruptivo se maneja con medicación de rescate de acción rápida."]],
+["Mecanismo y farmacocinética",["AINE que inhibe la COX-1 y la COX-2: reduce la síntesis de prostaglandinas e inhibe la agregación plaquetaria. El manual aclara que su mecanismo exacto no se conoce.","Concentraciones máximas entre 15 y 30 minutos; meseta entre 45 y 90 minutos, con niveles superiores a los de las cápsulas desde la tercera hora.","Con alimentos la absorción es más lenta y el pico menor, pero la biodisponibilidad total no cambia.","Unión a proteínas del 99%; llega al líquido sinovial y atraviesa las barreras placentaria y hematoencefálica. Vida media de 3 a 4 horas.","Eliminación: 50% por orina en 6 horas y del 75 al 90% en 5 días; por heces solo del 1 al 8%."]],
+["Tecnología bifásica y Vinko Breakline",["Capa blanca: se disuelve rápido y saca al paciente de la crisis.","Capa amarilla: se disuelve de forma gradual, mantiene la concentración sin grandes picos y busca cobertura de 24 horas con mayor seguridad gástrica.","Vinko Breakline: permite partir el comprimido sin perder contenido; útil en pacientes con dificultad para tragar y para ajustar la dosis."]],
+["Frente a la competencia (según el manual)",["Profenid (ketoprofeno): inicio a los 30 minutos y 2 a 4 tomas al día; no se debe partir.","Diclofenaco y aceclofenaco: más abandono por intolerancia, tratamientos de unos 10 días frente a 5 de Bicerto.","Nimesulida: efecto de unas 6 horas y 2 a 4 tomas al día.","Etodolaco: inicio a los 30 minutos, efecto de 4 a 6 horas y 3 a 4 tomas al día.","Etoricoxib y celecoxib: el manual dice que son más nuevos y pueden afectar a pacientes hipertensos. Ojo: Etoricoxib es Etox, también un producto de tu portafolio.","Estas son afirmaciones del manual; conviene verificarlas antes de usarlas con un médico."]],
+["Argumentos de venta",["Alivio rápido (15 minutos) y prolongado (24 horas).","Una dosis al día y comprimido partible con Vinko Breakline.","Sin necesidad de analgésicos asociados.","Costo 35% más accesible que el medicamento de referencia.","Seguridad cardiovascular reconocida: el manual la apoya en un estudio de 12 meses de 1991 (Schattenkirchner) donde el ketoprofeno no cambió la presión arterial ni la frecuencia cardíaca.","Tratamiento corto, normalmente de unos 5 días, lo que ayuda a la seguridad gástrica.","Respaldo de Eurofarma. El manual también habla de receta simple, pero cita a la ANVISA (Brasil): verifica la norma en Colombia."]],
+["Información pendiente",["El manual no trae contraindicaciones, advertencias, interacciones ni eventos adversos de Bicerto.","Completa esos datos con el prospecto oficial antes de usar este módulo en capacitaciones."]],
+["Preguntas que hará el médico",["¿Cuánto tarda en actuar? Inicio en 15 minutos; concentraciones máximas entre 15 y 30 minutos.","¿Cómo lo dosifico? Un comprimido al día con las comidas; ataque de 300 mg al día en 2 tomas por el menor tiempo posible; máximo 300 mg al día.","¿Puedo partirlo? Sí, la tecnología Vinko Breakline permite partirlo sin perder contenido; en migraña se usa media tableta (75 mg).","¿Qué hay de la seguridad gástrica? La liberación bifásica evita grandes picos y se usa en tratamientos cortos, pero sigue siendo un AINE; para contraindicaciones, remitir al prospecto."]]]},
+m4:{t:"Betatreinta · Betametasona",s:"Corticoide inyectable: fosfato (acción rápida) más dipropionato (efecto prolongado)",sec:[
+["Puntos clave",["Asocia fosfato disódico de betametasona (acción inmediata) y dipropionato de betametasona (efecto prolongado).","Acciones antiinflamatoria, antialérgica y antirreumática.","Alivio de síntomas de 4 semanas o más; el nombre recuerda el principio activo (beta) y los 30 días (treinta).","Incluye jeringa de seguridad y la dosis de 1 mL permite usarlo sin desperdiciar producto.","Lema de la ayuda visual: en un dos por 30 días."]],
+["Composición y presentación",["Cada mL contiene dipropionato de betametasona 6,43 mg (equivale a 5 mg de betametasona base) y fosfato disódico de betametasona 2,63 mg (equivale a 2 mg base).","Caja con 1 ampolla de vidrio tipo I de 1 mL y jeringa estéril de 3 mL con sistema de seguridad, dentro de blíster estéril.","Suspensión blanca homogénea; no contiene parabenos, su conservante es cloruro de benzalconio.","Validez de 2 años.","Registro INVIMA 2020M-0019954; venta bajo prescripción médica."]],
+["Indicaciones",["Terapia corticosteroide en enfermedades agudas y crónicas que responden a corticoides.","Osteomuscular: artritis reumatoide, osteoartritis, bursitis, espondilitis anquilosante, epicondilitis, radiculitis, ciática, lumbago, tortícolis, fascitis.","Alérgicas: asma bronquial, rinitis alérgica, edema angioneurótico, bronquitis alérgica, reacciones a fármacos, picaduras de insectos.","Dermatológicas: dermatitis atópica y de contacto, urticaria, psoriasis, queloides, alopecia areata, lupus discoide, pénfigo, acné quístico, entre otras.","Colagenosis, afecciones del pie (bursitis bajo heloma, hallux rigidus), colitis ulcerativa, síndrome nefrótico y otras.","Neoplasias: tratamiento paliativo de leucemias y linfomas."]],
+["Posología y vías de administración",["Vías: intramuscular profunda (glútea), intraarticular, periarticular, intrabursal, intradérmica, intralesional y tejidos blandos. No es para uso intravenoso.","Sistémico: iniciar con 1 a 2 mL y repetir según necesidad; hasta 2 mL en enfermedades graves como lupus sistémico o estado asmático controlado. Según la ayuda visual, la inyección intramuscular usa aguja 30/7.","Intraarticular: articulaciones grandes (rodilla, pelvis, hombro) 1 a 2 mL; medianas (codo, muñeca, tobillo) 0,5 a 1 mL; pequeñas (pie, mano, tórax) 0,25 a 0,5 mL. El alivio llega en 2 a 4 horas y dura 4 semanas o más en la mayoría de los casos.","Bursitis: 1 a 2 mL intrabursal.","Dermatología intralesional: 0,2 mL por cm², con aguja fina (calibre 25 o 26); no exceder 1 mL por semana.","Se puede mezclar en la jeringa (no en el frasco) con lidocaína o procaína al 1 o 2%; evitar anestésicos con metilparabeno, propilparabeno o fenol.","Usar la dosis más baja posible y reducirla de forma gradual."]],
+["Mecanismo de acción",["Imita al cortisol: inhibe la fosfolipasa A2, bloquea la vía del ácido araquidónico y reduce prostaglandinas y leucotrienos.","Antirreumática: reduce la respuesta inmunológica exagerada y la migración de leucocitos.","Antialérgica: inhibe la producción de anticuerpos alérgicos y el proceso inflamatorio.","Según el manual, tiene alta actividad glucocorticoide y mínima mineralocorticoide, con baja retención de sodio y agua."]],
+["Contraindicaciones y advertencias",["Contraindicado en infecciones fúngicas sistémicas e hipersensibilidad a betametasona, otros corticoides o componentes. La ayuda visual agrega osteoporosis grave, psicosis y menores de 15 años.","Precaución en tuberculosis activa, púrpura trombocitopénica, hipotiroidismo, cirrosis, herpes ocular, inestabilidad emocional, úlcera péptica, colitis ulcerosa, insuficiencia renal, hipertensión, osteoporosis y miastenia gravis.","Epidural: no aprobada; se han reportado eventos neurológicos graves, algunos mortales.","No inyectar en articulaciones infectadas o inestables, áreas infectadas ni espacios intervertebrales. Descartar artritis séptica.","Evitar inyectar en la masa del tendón (riesgo de ruptura). Inyecciones repetidas en articulaciones con osteoartritis pueden aumentar la destrucción articular.","Técnica aséptica estricta. Pueden enmascarar infecciones.","No vacunar contra viruela durante la terapia; otras vacunas con cautela, sobre todo a dosis altas.","Retirarlo de forma gradual para evitar insuficiencia adrenal. Embarazo y lactancia: valorar riesgo y beneficio."]],
+["Interacciones",["Fenobarbital, rifampicina, fenitoína y efedrina: reducen el efecto del corticoide.","Diuréticos que reducen potasio, digitálicos y anfotericina B: riesgo de hipopotasemia; controlar potasio.","Cumarínicos: pueden aumentar o disminuir el efecto anticoagulante.","Antidiabéticos orales e insulina: pueden requerir ajuste de dosis.","AINEs y alcohol: más úlceras gastrointestinales. Ácido acetilsalicílico: usar con precaución.","Estrógenos: observar posible exacerbación del efecto del corticoide."]],
+["Reacciones adversas",["Dependen de la dosis y la duración; suelen revertir al reducir la dosis.","Frecuentes: insomnio, dispepsia, aumento del apetito y mayor incidencia de infecciones.","Inusuales: diabetes mellitus, síndrome de Cushing exógeno, hipopotasemia, retención de sodio y agua, osteoporosis, mala cicatrización, atrofia cutánea.","Raras: depresión, confusión, convulsiones, aumento de la presión ocular, catarata, hipertensión, insuficiencia cardíaca, trombosis venosa profunda.","Locales: atrofia cutánea, cambios de pigmentación, abscesos estériles; casos raros de ceguera con inyección intralesional en cara y cabeza."]],
+["Ventajas (según el manual)",["Acción inmediata y efecto de 4 semanas o más: normalmente una ampolla al mes.","Cristales pequeños: permiten agujas finas y menos riesgo de que la aguja se tape.","Jeringa de seguridad incluida, alineada con la guía de riesgo biológico del Ministerio de Trabajo, y ahorra comprar jeringa aparte.","Sin parabenos en la fórmula.","Bioequivalencia con el producto innovador, según la ayuda visual.","Precio más accesible entre las betametasonas inyectables."]],
+["Frente a la competencia (según el manual)",["Betaduo, Diprospan y Diprofos: misma combinación de betametasona; contienen parabenos y tienen precio más alto; Diprofos no trae jeringa.","Inflacor Retard (acetato más fosfato de betametasona): acción más corta, puede requerir repetir la dosis cada 1 o 2 semanas.","Duo Decadron (acetato más fosfato de dexametasona): el acetato actúa de 1 a 3 semanas.","Ojo: el manual usa argumentos fuertes contra los parabenos (alergias, alteración endocrina, cáncer de mama) que no están respaldados de forma concluyente. Evita repetirlos como hechos al médico."]],
+["Datos para verificar",["Los precios de la ayuda visual vienen de una fuente de febrero de 2015: actualízalos antes de usarlos.","La bioequivalencia se cita con ANVISA y estudios de Brasil: confirma su validez en Colombia.","Edad: el manual dice que se usa desde los 15 años y la ayuda visual dice contraindicado en menores de 15; coinciden, pero confirma con el prospecto.","El manual afirma que el cloruro de benzalconio no tiene riesgo alguno: usa solo lo que respalde el prospecto oficial."]],
+["Preguntas que hará el médico",["¿Cuánto dura el efecto? Acción inmediata por el fosfato y efecto prolongado de 4 semanas o más por el dipropionato.","¿Cuánto aplico en la rodilla? Articulaciones grandes: 1 a 2 mL; medianas: 0,5 a 1 mL; pequeñas: 0,25 a 0,5 mL.","¿Puedo mezclarlo con lidocaína? Sí, en la jeringa y no en el frasco, con lidocaína o procaína al 1 o 2%, evitando anestésicos con parabenos o fenol.","¿Lo puedo usar por vía intravenosa o epidural? No: no es para uso intravenoso y la vía epidural no está aprobada por los eventos neurológicos graves reportados.","¿Qué cuidado tengo en hipertensos o diabéticos? Puede subir la presión, retener sal y agua y alterar la glucosa; hay que vigilar y ajustar antidiabéticos o insulina."]]]},
+m5:{t:"Doloro · Ciclobenzaprina",s:"Relajante muscular de uso oral (tabletas de 5 mg y 10 mg)",sec:[
+["Puntos clave",["Relajante muscular con ciclobenzaprina para espasmos musculares asociados a dolor agudo de origen musculoesquelético.","Indicado también en fibromialgia: dolor difuso, fatiga y calidad del sueño.","Lanzamiento en un mercado libre de genéricos, según la presentación.","Coadyuvante de la fisioterapia y el reposo.","Marca fácil de asociar con dolor muscular."]],
+["Formulación y presentaciones",["Tabletas recubiertas de clorhidrato de ciclobenzaprina de 5 mg y de 10 mg.","La presentación habla de cajas de 15 y 30 tabletas en ambas concentraciones (cuatro presentaciones); el manual describe cajas de 15 y 30 tabletas de 5 mg y 30 tabletas de 10 mg. Ver datos para verificar."]],
+["Indicaciones",["Espasmos musculares con dolor agudo musculoesquelético: lumbalgia, tortícolis, periartritis escapulohumeral y cervicobraquialgias.","Síndrome de fibromialgia.","Como coadyuvante de otras medidas como fisioterapia y reposo."]],
+["Posología",["Adultos y mayores de 15 años: 10 mg 2 veces al día, con rango de 10 a 40 mg diarios; dosis máxima sugerida en el manual: 60 mg al día.","Según la presentación: Doloro 5 mg, 1 tableta 3 veces al día; Doloro 10 mg, 1 a 2 tabletas 2 a 3 veces al día.","El manual menciona que 10 mg al acostarse logran eficacia similar con menos efectos secundarios.","Duración total del tratamiento: de 2 a 3 semanas.","No se estableció seguridad ni eficacia en menores de 15 años.","No interactúa con alimentos: se puede tomar a cualquier hora."]],
+["Mecanismo de acción",["Actúa sobre la formación reticular del tallo cerebral y reduce la actividad de las motoneuronas alfa y gamma, lo que baja el tono del músculo esquelético.","El manual aclara que el mecanismo no está completamente dilucidado.","Su estructura se parece a la de los antidepresivos tricíclicos, pero no tiene efecto antidepresivo."]],
+["Patologías relacionadas",["Contractura muscular, fibromialgia, síndrome miofascial (puntos gatillo), lumbalgia, cervicalgia, tortícolis y periartritis escapulohumeral.","Tortícolis: congénita, espasmódica o por contractura muscular; esta última es la más común y puede deberse a mala postura o un movimiento brusco.","Periartritis escapulohumeral (hombro congelado): suele aparecer después de los 40 años, más en mujeres, con fase dolorosa, de rigidez y de descongelamiento."]],
+["Ventajas (según el manual)",["Tratamiento de los síntomas de la fibromialgia con mejoría de la calidad del sueño.","Flexibilidad para elegir la presentación y titular la dosis (5 mg y 10 mg).","Bajo perfil de interacciones; el manual lo plantea como seguro para pacientes polimedicados.","Mantiene eficacia y tolerabilidad en tratamientos prolongados.","Puede asociarse a antiinflamatorios e ISRS.","Precio más asequible que los competidores.","Bioequivalencia en Brasil frente a la marca de referencia Miosan (Apsen)."]],
+["Frente a la competencia (según el manual)",["Ciclorelax (Roemmers) 10 mg x 20 y Mitrul (Tecnofarma) 15 mg de liberación controlada x 10: misma molécula, presentación única y costo superior.","Dorixina Relax (ciclobenzaprina 5 mg más clonixinato de lisina): combinación fija sin dosis de 10 mg, no permite titular y cuesta más.","Rodalgin (ciclobenzaprina 5 mg más ibuprofeno 400 mg): combinación fija; el manual advierte del riesgo gastrointestinal del ibuprofeno y que está contraindicado en alergia a AINEs.","Metocarbamol (Mioflex, Robaxin Gold, Robaxifen): el manual dice que no está indicado en fibromialgia y puede cambiar el color de la orina."]],
+["Datos para verificar",["El manual no trae contraindicaciones, advertencias, interacciones ni eventos adversos de Doloro: complétalos con el prospecto oficial antes de usar el módulo.","Dosis máxima: el manual sugiere 60 mg al día, pero las referencias habituales de esta molécula suelen indicar un máximo menor. Confirma con el prospecto.","El manual dice que no afecta el sistema nervioso central ni la conciencia, aunque con esta molécula suele reportarse somnolencia: confirma en el prospecto.","Presentaciones: la presentación y el manual no coinciden en cuántas son; Mitrul aparece con 15 mg y también con 5 mg.","Afirmaciones fuertes para respaldar: único relajante con estudios de eficacia en fibromialgia, medicamento de primera elección, seguro para polimedicados y asociable a ISRS.","La bioequivalencia se cita en Brasil y no se dan precios concretos."]],
+["Preguntas que hará el médico",["¿Cómo lo dosifico? Según el manual, 10 mg dos veces al día (rango de 10 a 40 mg diarios) por 2 a 3 semanas; 5 mg permite titular. Remitir al prospecto para el máximo.","¿Lo puedo dar a un menor de 15 años? No: no se estableció seguridad ni eficacia en ese grupo.","¿Se puede asociar con un antiinflamatorio? El manual dice que sí, con antiinflamatorios e ISRS; para riesgos de interacción, remitir al prospecto.","¿Por qué no una combinación fija con ibuprofeno? Permite ajustar cada medicamento por separado y el manual advierte del riesgo gastrointestinal del AINE.","¿Qué efectos adversos tiene? El manual no los detalla: remitir al prospecto oficial."]]]}};
+function openProd(id){
+ var d=PROD[id],h="";
+ $("pt").textContent=d.t;$("ps").textContent=d.s;
+ d.sec.forEach(function(x,i){h+="<details"+(i===0?" open":"")+"><summary>"+x[0]+"</summary><div>"+li(x[1])+"</div></details>"});
+ $("acc").innerHTML=h;show("prod");
+}
+$("mods").onclick=function(e){var b=e.target.closest("button");if(!b||b.disabled)return;openProd(b.dataset.id)};
+$("backP").onclick=function(){show("home")};
+function fiche(){
+ var p=PERS.filter(function(x){return x.id===pick})[0],f=$("fiche");
+ f.innerHTML="<b class='h'>Cómo decide</b>"+p.dec+"<b class='h'>Qué valora</b>"+li(p.val)+"<b class='h'>Cómo hablarle</b>"+li(p.hab)+"<b class='h'>Evita con este estilo</b>"+li(p.evi)+"<div class='q'>“"+p.anc+"”</div><b class='h'>Claves para la visita médica</b>"+li(p.cla);
+ f.style.borderLeftColor=p.c1;f.hidden=false;
+}
+$("go").onclick=login;
+$("p").onkeydown=function(e){if(e.key==="Enter")login()};
+
+$("toSim").onclick=function(){drawPers();show("simu")};
+$("back").onclick=function(){show("home")};
+$("pers").onclick=function(e){
+ var b=e.target.closest("button");if(!b)return;
+ pick=b.dataset.id;drawPers();fiche();$("start").disabled=false;$("note").hidden=true;
+};
+var DEMO={
+t:{spec:"Ortopedia y traumatología",turns:[
+{d:"Tengo cinco minutos. ¿Qué me traes?",o:[["Doctor, Etox es etoricoxib: un coxib de una sola toma al día para dolor posoperatorio e inflamación, con menor riesgo gastrointestinal que los AINEs tradicionales.",1,"Bien, directo. Sigue."],["Doctor, primero le cuento la historia completa de la molécula, su farmacocinética y todos sus estudios...",0,"Se me acaba el tiempo. Ve al punto."]]},
+{d:"¿Qué dosis uso en un posoperatorio y por cuánto tiempo?",o:[["120 mg una vez al día, solo durante el periodo de dolor y máximo una semana.",1,"Perfecto, concreto."],["Eh... depende, no tengo ese dato exacto, pero se lo averiguo.",0,"Sin números no me sirve. Prepárate mejor."]]},
+{d:"¿Qué riesgo tiene para mis pacientes hipertensos?",o:[["Como otros AINEs puede subir la presión y retener líquidos; recomiendo la menor dosis por el menor tiempo y vigilar la tensión.",1,"Honesto y útil. Dime el siguiente paso."],["Ninguno, Etox es totalmente seguro en hipertensos.",0,"Eso es falso y me hace perder confianza."]]}]},
+a:{spec:"Odontología",turns:[
+{d:"¡Qué bueno verte! Cuéntame, ¿qué hay de nuevo?",o:[["Doctor, le presento Etox. Imagine a su paciente tras una extracción con alivio desde unos 24 minutos y una sola toma al día.",1,"¡Suena muy interesante! Cuéntame más."],["Es un AINE selectivo de COX-2. Le leo la ficha técnica completa, empezando por las contraindicaciones.",0,"Uf, qué monótono. Se me fueron las ganas."]]},
+{d:"¿Y cómo lo usarías en cirugía de cordales?",o:[["Con 60 mg se previene el dolor antes de la cirugía, y con 120 mg se cubre la cirugía de mayor intensidad y el posoperatorio.",1,"¡Me gusta! Ya visualizo varios pacientes."],["Para todo tipo de dolor, sin importar la dosis.",0,"Eso es muy vago. No me inspira."]]},
+{d:"¿Y frente al ibuprofeno, qué diferencia ven mis pacientes?",o:[["En el estudio dental, el efecto duró unas 12 horas frente a unas 10 de ibuprofeno 400 mg, con una sola toma al día.",1,"Excelente, un diferencial claro. Probémoslo con un paciente."],["No tengo el dato, pero es mejor que el ibuprofeno en todo.",0,"Sin datos no me convences."]]}]},
+l:{spec:"Reumatología",turns:[
+{d:"Buenos días. Antes de recetar algo nuevo necesito evidencia. ¿Qué respaldo tiene Etox?",o:[["Con gusto, paso a paso: es un inhibidor selectivo de COX-2 y en el estudio MEDAL se asoció con menor riesgo de úlceras gastrointestinales, con o sin aspirina o inhibidores de bomba de protones.",1,"Ordenado. Eso me sirve."],["No se preocupe, doctor, funciona muy bien y todos mis médicos lo recetan.",0,"Eso no es evidencia. No me presiones con anécdotas."]]},
+{d:"¿Y la seguridad cardiovascular?",o:[["En el análisis del manual, los eventos cardiovasculares fueron similares a los de AINEs tradicionales; por cada 1000 pacientes, 6 eventos gastrointestinales serios y 1 cardiovascular. Conviene vigilar la presión en hipertensos y mayores de 65 años.",1,"Claro y con cifras. Es lo que necesito."],["Ese tema es complicado, mejor no entrar en detalles.",0,"Una respuesta ambigua no me sirve."]]},
+{d:"Tengo pacientes con warfarina. ¿Algo que deba saber?",o:[["Sí: eleva el INR cerca de 13%, así que hay que monitorizarlo de cerca al iniciar o ajustar dosis.",1,"Preciso. Déjame el material y lo reviso con calma."],["No hay ninguna interacción, puede usarlo tranquilo.",0,"Eso contradice lo que sé. No puedo confiar en esa información."]]}]},
+g:{spec:"Medicina general",turns:[
+{d:"Hola, pasa. Cuéntame, ¿cómo estás? Hoy ha sido un día pesado.",o:[["Gracias, doctor, qué amable. Me alegra acompañarlo. Quisiera contarle algo que puede ayudar a sus pacientes con dolor.",1,"Qué detalle. Sí, tengo varios pacientes así. Cuéntame."],["Bien, vamos directo: Etox 120 mg, una vez al día. Hay que recetarlo ya.",0,"Qué seco... prefiero que no me presionen así."]]},
+{d:"A mis pacientes mayores les preocupa el estómago. ¿Cómo lo ve Etox?",o:[["Lo entiendo, doctor. Etox tiene menor riesgo gastrointestinal que los AINEs tradicionales, aunque siempre conviene la menor dosis y vigilar. Eso da tranquilidad.",1,"Me da confianza. Mis pacientes valoran sentirse cuidados."],["Eso no es problema, los mayores no tienen riesgo con Etox.",0,"No me parece responsable decir eso."]]},
+{d:"Si lo receto, ¿cómo se lo explico a mi paciente para que lo tome tranquilo?",o:[["Es una tableta al día y puede tomarla con las comidas, lo que facilita seguir el tratamiento. Yo puedo dejarle un folleto sencillo.",1,"Perfecto, eso lo hace fácil. Gracias por tu cercanía."],["Dígales que lean el prospecto.",0,"Prefiero un trato más cercano... lo pensaré."]]}]}
+};
+var turn=0,okc=0,cur=null;
+var voiceOn=true,SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+function speak(t){if(!voiceOn||!window.speechSynthesis)return;speechSynthesis.cancel();var u=new SpeechSynthesisUtterance(t);u.lang="es-CO";var v=speechSynthesis.getVoices().filter(function(x){return x.lang.indexOf("es")===0})[0];if(v)u.voice=v;speechSynthesis.speak(u)}
+function unlock(){if(window.speechSynthesis){speechSynthesis.cancel();speechSynthesis.speak(new SpeechSynthesisUtterance(" "))}}
+function addMsg(r,t,q){var d=document.createElement("div");d.className="b "+r;d.textContent=t;$("msgs").appendChild(d);d.scrollIntoView({block:"end"});if(r==="d"&&!q)speak(t);return d}
+$("snd").onclick=function(){voiceOn=!voiceOn;$("snd").textContent=voiceOn?"🔊 Voz":"🔇 Voz";if(!voiceOn&&window.speechSynthesis)speechSynthesis.cancel()};
+function norm(t){return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9 ]/g," ").split(" ").filter(function(w){return w.length>3})}
+function listen(){
+ if(window.speechSynthesis)speechSynthesis.cancel();
+ var r=new SR();r.lang="es-CO";r.interimResults=false;var m=$("mic");m.textContent="🎙️ Escuchando…";
+ r.onresult=function(e){var said=norm(e.results[0][0].transcript),best=-1,bs=0;
+  DEMO[cur.id].turns[turn].o.forEach(function(o,i){var w=norm(o[0]).join(" "),hit=0;said.forEach(function(x){if(w.indexOf(x)>-1)hit++});var sc=said.length?hit/said.length:0;if(sc>bs){bs=sc;best=i}});
+  if(best>-1&&bs>=0.3)choose(best);else addMsg("d","(Aviso) No te entendí bien. Lee una de las respuestas en voz alta o tócala.",1)};
+ r.onend=function(){if($("mic"))$("mic").textContent="🎤 Hablar mi respuesta"};
+ r.onerror=function(){addMsg("d","(Aviso) No pude usar el micrófono. Permite el acceso en Ajustes > Safari > Micrófono, o toca una respuesta.",1)};
+ try{r.start()}catch(x){r.onerror()}
+}
+function showOpts(){var t=DEMO[cur.id].turns[turn],ord=turn%2?[1,0]:[0,1],h="";ord.forEach(function(i){h+='<button class="opt" data-i="'+i+'">'+t.o[i][0]+'</button>'});if(SR)h+='<button class="btn" id="mic" style="margin-top:10px">🎤 Hablar mi respuesta</button>';$("opts").innerHTML=h;$("opts").scrollIntoView({block:"end"})}
+function startVisit(){cur=PERS.filter(function(p){return p.id===pick})[0];var D=DEMO[cur.id];turn=0;okc=0;$("msgs").innerHTML="";$("opts").innerHTML="";$("eval").hidden=true;$("cinfo").textContent="Etox · "+cur.i+" "+cur.n+" · "+D.spec;show("chat");addMsg("d",D.turns[0].d);showOpts()}
+function choose(i){var D=DEMO[cur.id],o=D.turns[turn].o[i];$("opts").innerHTML="";addMsg("v",o[0]);if(o[1])okc++;
+ setTimeout(function(){addMsg("d",o[2]);turn++;if(turn<D.turns.length){setTimeout(function(){addMsg("d",D.turns[turn].d);showOpts()},1800)}else{setTimeout(finish,2200)}},500)}
+$("opts").onclick=function(e){if(e.target.closest("#mic"))return listen();var b=e.target.closest("button.opt");if(b)choose(+b.dataset.i)};
+function finish(){var sc=[2,5,8,10][okc],c=sc>=8?"#16a34a":sc>=6?"#d97706":"#dc2626",ev=$("eval");
+ ev.hidden=false;speak("Tu nota es "+sc+" de 10.");
+ ev.innerHTML="<div class='score' style='background:"+c+"'>"+sc+"<small>/10</small></div><b class='h'>Resultado</b>"+(okc===3?"Te adaptaste muy bien al estilo "+cur.n+".":okc===0?"Esta vez no lograste conectar con el estilo "+cur.n+".":"Conectaste en "+okc+" de 3 momentos.")+"<b class='h'>Claves para este estilo</b>"+li(cur.cla)+"<b class='h'>Evita</b>"+li(cur.evi)+"<p class='foot'>Esta es una demostración con respuestas predefinidas. La versión completa usa un médico con IA que improvisa y habla.</p><button class='btn' id='again'>Probar otro estilo</button>";
+ $("again").onclick=function(){show("simu")};ev.scrollIntoView({block:"end"})}
+$("start").onclick=function(){unlock();startVisit()};
+$("out").onclick=function(){pick=null;show("login")};
+$("exitv").onclick=function(){if(window.speechSynthesis)speechSynthesis.cancel();show("simu")};
+</script>
+</body>
+</html>
